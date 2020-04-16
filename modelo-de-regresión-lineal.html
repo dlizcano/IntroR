@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="modelos-en-r.html"/>
-<link rel="next" href="bibliografía.html"/>
+<link rel="next" href="modelos-de-distribución.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -146,8 +146,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames</a></li>
 <li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames</a></li>
 <li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva</a></li>
-<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> visualizar la tabla graficamente</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> como histograma</a></li>
+<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
 <li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
 </ul></li>
@@ -163,6 +163,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
 <li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
 <li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
+<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
+<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
 <li class="divider"></li>
@@ -221,7 +225,7 @@ y = \alpha + \beta x + \epsilon
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">library</span>(ggplot2)</a>
 <a class="sourceLine" id="cb56-2" title="2"><span class="kw">ggplot</span>(model1, <span class="kw">aes</span>(<span class="dt">x=</span>Petal.Length, <span class="dt">y=</span>Sepal.Length)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb56-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="co"># try geom_smooth()</span></a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <blockquote>
 <h3 id="ejercicio-3"><span class="header-section-number">9.1</span> Ejercicio:</h3>
 <p>Discuta e interprete los coeficientes del modelo.</p>
@@ -244,7 +248,7 @@ y = \alpha + \beta x + \epsilon
 <h2><span class="header-section-number">9.2</span> Regresión lineal con 2 o mas predictores</h2>
 <p>Ahora haremos las cosas un poco más complejas (sin que sean difíciles) para entender que sucede cuando hay dos o más predictores de la forma:</p>
 <p>\begin{aligned}
-y = +<em>{1} + </em>{2} + 
+y = +<em>{1} +</em>{2} +,
 \end{aligned}</p>
 <p>Usaremos mas (+) para combinar efectos. Dos puntos (:) para interacciones A:B; y <em>asterisco (<em>) para efectos e interacciones, ej A</em>B = A+B+A:B</em></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">model1a &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length<span class="op">~</span>Petal.Length <span class="op">*</span><span class="st"> </span>Petal.Width, <span class="dt">data=</span>iris)</a>
@@ -277,7 +281,7 @@ y = +<em>{1} + </em>{2} +
 <a class="sourceLine" id="cb61-6" title="6"><span class="kw">levelplot</span>(Sepal.Length<span class="op">~</span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width, <span class="dt">data=</span>newdato,</a>
 <a class="sourceLine" id="cb61-7" title="7">  <span class="dt">xlab =</span> <span class="st">&quot;Petal.Length&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Petal.Width&quot;</span>,</a>
 <a class="sourceLine" id="cb61-8" title="8">  <span class="dt">main =</span> <span class="st">&quot;Surface of Sepal.Length&quot;</span>)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <blockquote>
 <h3 id="ejercicio-5"><span class="header-section-number">9.2</span> Ejercicio:</h3>
 <p>Cambie el rango de la predicción de 2 a 8
@@ -292,7 +296,7 @@ Cambie en el modelo la interacion de las covariables a +</p>
         </div>
       </div>
 <a href="modelos-en-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelos-de-distribución.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

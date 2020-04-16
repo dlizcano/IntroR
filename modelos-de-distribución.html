@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Creación y e indexación de listas | Introducción a R</title>
+  <title>Capítulo 10 Modelos de distribución | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Creación y e indexación de listas | Introducción a R" />
+  <meta property="og:title" content="Capítulo 10 Modelos de distribución | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Creación y e indexación de listas | Introducción a R" />
+  <meta name="twitter:title" content="Capítulo 10 Modelos de distribución | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al menejo de R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tablas.html"/>
-<link rel="next" href="creación-de-funciones.html"/>
+<link rel="prev" href="modelo-de-regresión-lineal.html"/>
+<link rel="next" href="bibliografía.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -189,34 +189,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creación-y-e-indexación-de-listas" class="section level1">
-<h1><span class="header-section-number">Capítulo 5</span> Creación y e indexación de listas</h1>
-<p>Las tablas son contenedores de información estructurada: las columnas son del mismo tipo, todas tienen la misma longitud, etc. Gran parte de los datos con los que se trabaja habitualmente son estructurados, palabra que, en la jerga, significa que admiten una representación tabular.</p>
-<p>Sin embargo, cada vez es más habitual trabajar directamente con información desestructurada. Particularmente, en ciencia de datos. Eso justifica el uso de las listas, que pueden definirse como contenedores genéricos de información desestructurada.</p>
-<p>Las listas son objetos muy versatiles que mezclan varias cosas y sirven como contenedores genericos de dstos e informacón. Estas son una ventaja de R, sobre otros lenguajes como Python que no las tienen. Pero pueden llegar a ser objetos complejos dificiles de entender y visualizar.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>) <span class="co"># vector numerico</span></a>
-<a class="sourceLine" id="cb36-2" title="2">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>, <span class="st">&quot;Carro&quot;</span>, <span class="st">&quot;Beca&quot;</span>) <span class="co"># vector alfanumerico</span></a>
-<a class="sourceLine" id="cb36-3" title="3"></a>
-<a class="sourceLine" id="cb36-4" title="4">florecitas &lt;-<span class="st"> </span>iris[<span class="dv">3</span><span class="op">:</span><span class="dv">25</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>] <span class="co">#data frame</span></a>
-<a class="sourceLine" id="cb36-5" title="5"></a>
-<a class="sourceLine" id="cb36-6" title="6">lista1 &lt;-<span class="st"> </span><span class="kw">list</span>(a, b, florecitas)</a></code></pre></div>
-<p>las listas disponen de un operador para extraer elementos, los dobles corchetes, [[]], que funcionan de manera parecida y analoga a $.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">lista1[[<span class="dv">2</span>]] <span class="co"># extrae el objeto b</span></a></code></pre></div>
-<pre><code>## [1] &quot;Casa&quot;  &quot;Carro&quot; &quot;Beca&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">lista1[[<span class="dv">3</span>]] [,<span class="dv">4</span>] <span class="co"># extrae la columna 4 del objeto 3</span></a></code></pre></div>
-<pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa
-## [10] setosa setosa setosa setosa setosa setosa setosa setosa setosa
-## [19] setosa setosa setosa setosa setosa
-## Levels: setosa versicolor virginica</code></pre>
+<div id="modelos-de-distribución" class="section level1">
+<h1><span class="header-section-number">Capítulo 10</span> Modelos de distribución</h1>
+<div id="binomial" class="section level2">
+<h2><span class="header-section-number">10.1</span> Binomial</h2>
+<p>Recordemos la ecuación de la distribución Binomial:</p>
+<span class="math display">\[\begin{aligned}
+$P(x)= frac{N!}{x!(N-x)!} pi^{x}(1-pi)^{N-x}$
+\end{aligned}\]</span>
+<p>Donde:
+<span class="math inline">\(N\)</span> es el número de ensayos.
+<span class="math inline">\(x\)</span> es el número de exítos.
+<span class="math inline">\(\pi\)</span> es la probabilidad de exíto en cada ensayo.</p>
+<p>Por favor no se asuste por la aparente complejidad de la ecuación. Para simplificar la interpretacion usaremos en lugar de la ecuación, el álgebra del modelo.</p>
+<span class="math display">\[\begin{aligned}
+$y \sim \mathbf{Bin}(n,p)$
+\end{aligned}\]</span>
+<p>Donde <span class="math inline">\(X\)</span> se distribuye de forma binomial <span class="math inline">\(B\)</span> con los parametros <span class="math inline">\(n\)</span> que corresponde al numero de ensayos y <span class="math inline">\(p\)</span> a la probabilidad</p>
+<p>A continuación vamos a generar un set de <span class="math inline">\(n\)</span> datos con una probabilidad dada<span class="math inline">\(p\)</span>. Estos datos son almacenados en un dataframe y luego visualizados como una distribucion de freciencias. La lunea azul representa el promedio de esos datos.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">n&lt;-<span class="dv">10</span> <span class="co"># numero de datos</span></a>
+<a class="sourceLine" id="cb62-2" title="2">p&lt;-<span class="st"> </span><span class="fl">0.5</span> <span class="co"># probabilidad (~proporcion de unos)</span></a>
+<a class="sourceLine" id="cb62-3" title="3"><span class="co"># Generemos datos con esa informacion </span></a>
+<a class="sourceLine" id="cb62-4" title="4">daber&lt;-<span class="kw">data.frame</span>(<span class="dt">estimado=</span><span class="kw">rbinom</span>(n, <span class="dv">1</span>, p)) </a>
+<a class="sourceLine" id="cb62-5" title="5"><span class="co"># Grafiquemos </span></a>
+<a class="sourceLine" id="cb62-6" title="6"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb62-7" title="7"><span class="kw">ggplot</span>(daber, <span class="kw">aes</span>(<span class="dt">x=</span>estimado)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb62-8" title="8"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="co"># Histograma y densidad </span></a>
+<a class="sourceLine" id="cb62-9" title="9">                   <span class="dt">binwidth=</span>.<span class="dv">1</span>, <span class="co"># Ancho del bin</span></a>
+<a class="sourceLine" id="cb62-10" title="10">                   <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb62-11" title="11"><span class="st">        </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(estimado, <span class="dt">na.rm=</span>T)), </a>
+<a class="sourceLine" id="cb62-12" title="12">          <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>) <span class="co"># media en azul</span></a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-6"><span class="header-section-number">10.1</span> Ejercicio:</h3>
+<p>Varie primero el numero de datos y luego la probabilidad haciendola cercana a cero y luego cercana a uno. Vea como camvia el promedio con el numero de datos y la probabilidad.</p>
+</blockquote>
+</div>
+<div id="poisson" class="section level2">
+<h2><span class="header-section-number">10.2</span> Poisson</h2>
+<p>Recordemos la ecuación de la distribución Binomial:</p>
+<p>\begin{aligned}
+<span class="math inline">\(P(x) = \frac{\mu^{x}e^{-\mu}}{x!}\)</span>
+\begin{end}</p>
+<p>Donde:</p>
+<p><span class="math inline">\(\mu\)</span> es el numero medio de ocurrencia (exítos) en un intervalo en particular.
+<span class="math inline">\(e\)</span> es la constante 2.71828 (base of the Naperian logarithmic system).
+<span class="math inline">\(x\)</span> es el numero de ocurrencias (exítos).
+<span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>.</p>
+<p>De igual forma que en la distribución binomial no nos dejemos asustar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho mas sencilla.</p>
+<span class="math display">\[\begin{aligned}
+$N \sim \mathbf{Poisson}(\lambda)$
+\end{aligned}\]</span>
+<p>Donde:
+.
+<span class="math inline">\(N\)</span> es el conteo (abundancia).
+<span class="math inline">\(\lambda\)</span> es la media de la distribución</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">n &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb63-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb63-3" title="3">poisson_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;data&#39;</span> =<span class="st"> </span><span class="kw">rpois</span>(n, lambda))</a>
+<a class="sourceLine" id="cb63-4" title="4"></a>
+<a class="sourceLine" id="cb63-5" title="5">poisson_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb63-6" title="6"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> data, </a>
+<a class="sourceLine" id="cb63-7" title="7">                     <span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count))), </a>
+<a class="sourceLine" id="cb63-8" title="8">                     <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb63-9" title="9">                 <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-10" title="10"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> lambda, </a>
+<a class="sourceLine" id="cb63-11" title="11">             <span class="dt">size =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb63-12" title="12">             <span class="dt">linetype =</span> <span class="st">&#39;dashed&#39;</span>,</a>
+<a class="sourceLine" id="cb63-13" title="13">             <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-14" title="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-15" title="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Number of successes per period&#39;</span>,</a>
+<a class="sourceLine" id="cb63-16" title="16">       <span class="dt">y =</span> <span class="st">&#39;Proportion&#39;</span>,</a>
+<a class="sourceLine" id="cb63-17" title="17">       <span class="dt">title =</span> <span class="st">&#39;1,000 samples of Pois(lambda = 10)&#39;</span>)</a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-7"><span class="header-section-number">10.2</span> Ejercicio:</h3>
+<p>Use el modelo para variar n y lambda… vea que sucede.</p>
+</blockquote>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="tablas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="creación-de-funciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelo-de-regresión-lineal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -247,7 +306,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/05-Listas.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/10-Modelos_de_distribucion.Rmd",
 "text": "Edit"
 },
 "history": {
