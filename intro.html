@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-15" />
+<meta name="date" content="2020-04-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,13 +149,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html"><a href="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html"><i class="fa fa-check"></i><b>5</b> Representación de la relación entre una variable continua y otra categórica: diagramas de caja (boxplots)</a></li>
-<li class="chapter" data-level="6" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>6</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>7</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="8" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>8</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="8.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>8.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
+<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
+<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
+<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
 <li class="divider"></li>
@@ -209,31 +216,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.2</span> Primeros pasos</h2>
 <p>Si se emplea RStudio (recomendado), lo más cómodo sería crear un proyecto nuevo
 mediante el menú <em>File &gt; New Project &gt; New Directory &gt; proyecto1</em>.</p>
-<p>Si se abre el proyecto en RStudio, se puede compilar empleando el boton <em>Build Book</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-en la pestaña <em>Build</em>.
-Por defecto se generará el libro (en los distintos formatos)
-en la carpeta <em>_book</em> y al terminar se abrirá automáticamente la versión HTML.
-El libro se generará (de forma simultánea en los formatos deseados) a partir de una serie de documentos R Markdown, cada uno correspondiente a un capítulo.</p>
-<p><strong>Nota</strong>: Si se produce un error, puede ser necesario<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-eliminar manualmente los ficheros de salida (e.g.<br />
-<em>book_filename.Rmd</em> o <em>book_filename.md</em>) para poder volver a compilar.</p>
-<!---
-Esto es un comentario de bloque
-
-Cuando se ejecuta la compilación, por defecto se combinan todos los archivos en un `Rmd` y se procede como en R Markdown (Ver Figura 1), estrategia "Merge and Knit". Alternativamente, se puede usar `K-M` ("Knit and Merge"). La diferencia principal es que en `M-K` se corre todo en una única sesión de R.
-
-![**Figura 1**. How to work `Merge and Knit`](bookdown-M-K.png)
-
-![**Figura 2**. How to work ` Knit and Merge`](bookdown-K-M.png)
--->
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Alternativamente se puede ejecutar la función <code>render_book()</code> en el directorio del proyecto.<a href="intro.html#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
             </section>
 
@@ -283,7 +267,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown_intro.pdf"],
+"download": ["introR.pdf"],
 "toc": {
 "collapse": "subsection"
 },
@@ -292,6 +276,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

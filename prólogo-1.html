@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Matrices | Introducción a R</title>
+  <title>Prólogo | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta property="og:title" content="Prólogo | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta name="twitter:title" content="Prólogo | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al menejo de R." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-16" />
+<meta name="date" content="2020-04-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="creando-objetos-simples.html"/>
-<link rel="next" href="tablas.html"/>
+<link rel="prev" href="bibliografía.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -149,7 +149,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
@@ -157,14 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
 <li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li class="chapter" data-level="" data-path="prólogo-1.html"><a href="prólogo-1.html"><i class="fa fa-check"></i>Prólogo</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dlizcano/IntroR" target="_blank">Publicado con bookdown</a></li>
 
@@ -185,38 +178,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="matrices" class="section level1">
-<h1><span class="header-section-number">Capítulo 3</span> Matrices</h1>
-<p>Las matrices son el sigiente paso luego de los vectores. Las matrices son muy útiles en calculos algebraicos. Ls matrices se crean dimensionando un vector con la funcion dim o con la funcion matrix. Veamos algúnos ejemplos:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="co"># Creating Matrices: dim and matrix functions</span></a>
-<a class="sourceLine" id="cb19-3" title="3">value &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb19-4" title="4"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb19-5" title="5">value</a></code></pre></div>
-<pre><code>##             [,1]        [,2]       [,3]
-## [1,]  0.46210564 -1.43660592  1.7656800
-## [2,] -1.21864792  0.26695704  0.3956475
-## [3,]  1.35997655  0.38587903 -2.6528039
-## [4,]  0.08022658  0.03878461 -0.1118054</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,]  0.4621056 1.35997655 -1.436606
-## [2,] -1.2186479 0.08022658  0.266957</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a></code></pre></div>
-<pre><code>##            [,1]      [,2]     [,3]
-## [1,] 0.46210564 -1.218648 1.359977
-## [2,] 0.08022658 -1.436606 0.266957</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Creating Matrices: rbind and cbind functions</span></a>
-<a class="sourceLine" id="cb25-2" title="2">value &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a>
-<a class="sourceLine" id="cb25-3" title="3">value2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(value,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb25-4" title="4">value2</a></code></pre></div>
-<pre><code>##            [,1]        [,2]       [,3]
-## [1,] -0.4914202 -1.23270470 0.27577133
-## [2,]  0.1067777  0.07922758 0.02518136
-## [3,]  1.0000000  1.00000000 2.00000000</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">value3 &lt;-<span class="st"> </span><span class="kw">cbind</span>(value2,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
-<p>Las matrices son objetos que parecen tablas sin serlo en forma estricta.</p>
+<div id="prólogo-1" class="section level1 unnumbered">
+<h1>Prólogo</h1>
+<p>Este libro es una pequeña guía y tutorial sobre como emplear el lenguaje estadistico <code>R</code></p>
+<p><img src="images/R.png" width="100" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Este libro ha sido escrito en <a href="http://rmarkdown.rstudio.com">R-Markdown</a> empleando el paquete <a href="https://bookdown.org/yihui/bookdown/"><code>bookdown</code></a></p>
+<p><img src="images/rmd.png" width="20" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Este libro está disponible en el repositorio Github: <a href="https://github.com/dlizcano/IntroR">dlizcano/IntroR</a>.</p>
+<p>Esta obra está bajo una licencia de <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+<p><img src="images/by-sa-88x31.png" width="44" style="display: block; margin: auto auto auto 0;" /></p>
 
 </div>
             </section>
@@ -224,8 +194,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="creando-objetos-simples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tablas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bibliografía.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -256,7 +226,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/03-Matrices.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/introR.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -267,7 +237,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["introR.pdf"],
+"download": ["bookdown_intro.pdf"],
 "toc": {
 "collapse": "subsection"
 },
@@ -276,20 +246,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

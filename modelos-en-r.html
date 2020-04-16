@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Matrices | Introducción a R</title>
+  <title>Capítulo 8 Modelos en R | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta property="og:title" content="Capítulo 8 Modelos en R | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta name="twitter:title" content="Capítulo 8 Modelos en R | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al menejo de R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="creando-objetos-simples.html"/>
-<link rel="next" href="tablas.html"/>
+<link rel="prev" href="creación-de-bucles.html"/>
+<link rel="next" href="modelo-de-regresión-lineal.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -185,47 +185,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="matrices" class="section level1">
-<h1><span class="header-section-number">Capítulo 3</span> Matrices</h1>
-<p>Las matrices son el sigiente paso luego de los vectores. Las matrices son muy útiles en calculos algebraicos. Ls matrices se crean dimensionando un vector con la funcion dim o con la funcion matrix. Veamos algúnos ejemplos:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co">###################</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="co"># Creating Matrices: dim and matrix functions</span></a>
-<a class="sourceLine" id="cb19-3" title="3">value &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb19-4" title="4"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb19-5" title="5">value</a></code></pre></div>
-<pre><code>##             [,1]        [,2]       [,3]
-## [1,]  0.46210564 -1.43660592  1.7656800
-## [2,] -1.21864792  0.26695704  0.3956475
-## [3,]  1.35997655  0.38587903 -2.6528039
-## [4,]  0.08022658  0.03878461 -0.1118054</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,]  0.4621056 1.35997655 -1.436606
-## [2,] -1.2186479 0.08022658  0.266957</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a></code></pre></div>
-<pre><code>##            [,1]      [,2]     [,3]
-## [1,] 0.46210564 -1.218648 1.359977
-## [2,] 0.08022658 -1.436606 0.266957</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Creating Matrices: rbind and cbind functions</span></a>
-<a class="sourceLine" id="cb25-2" title="2">value &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a>
-<a class="sourceLine" id="cb25-3" title="3">value2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(value,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb25-4" title="4">value2</a></code></pre></div>
-<pre><code>##            [,1]        [,2]       [,3]
-## [1,] -0.4914202 -1.23270470 0.27577133
-## [2,]  0.1067777  0.07922758 0.02518136
-## [3,]  1.0000000  1.00000000 2.00000000</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">value3 &lt;-<span class="st"> </span><span class="kw">cbind</span>(value2,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
-<p>Las matrices son objetos que parecen tablas sin serlo en forma estricta.</p>
+<div id="modelos-en-r" class="section level1">
+<h1><span class="header-section-number">Capítulo 8</span> Modelos en R</h1>
+<p>Los modelos son una simplificación y abstracción de un sistema real que nos permite entender un proceso y/o sus resultados. Adicionalmente permiten entender como interactuan o se afectan los parametros si variamos algo dentro del modelo.</p>
+<div id="modelo-de-la-media" class="section level2">
+<h2><span class="header-section-number">8.1</span> Modelo de la media</h2>
+<p>Aunque este primer modelo no es un modelo como tal, el siguiente código nos permite entender como el tamaño de la muestra afecta la distribución de la media. Para esto usaremos el set de datos iris de R y la columna largo del pétalo. Lo que haremos será extraer al azar un numero (n) de valores del vector largo del pétalo y calcular la media cien veces. Con estos valores construiremos un histograma.</p>
+<p>Haremos una comparación grafica de la forma del histograma con la media (original) del vector largo del pétalo, el cual representaremos con color azul.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">str</span>(iris)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">iter &lt;-<span class="st"> </span><span class="dv">100</span> <span class="co"># Numero de iteraciones</span></a>
+<a class="sourceLine" id="cb53-2" title="2">n &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># numero de datos que muestreo. Variar hasta 150</span></a>
+<a class="sourceLine" id="cb53-3" title="3">means &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, iter) <span class="co"># aca almaceno las medias de cada iteracion</span></a>
+<a class="sourceLine" id="cb53-4" title="4"></a>
+<a class="sourceLine" id="cb53-5" title="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>iter){</a>
+<a class="sourceLine" id="cb53-6" title="6">  d &lt;-<span class="st"> </span><span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length, n) <span class="co"># sample toma n (1) datos </span></a>
+<a class="sourceLine" id="cb53-7" title="7">  means[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(d) <span class="co"># saca la media y guarda en means </span></a>
+<a class="sourceLine" id="cb53-8" title="8">}</a>
+<a class="sourceLine" id="cb53-9" title="9"></a>
+<a class="sourceLine" id="cb53-10" title="10"><span class="kw">hist</span>(means)</a>
+<a class="sourceLine" id="cb53-11" title="11"><span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">mean</span>(iris<span class="op">$</span>Petal.Length), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Ahora repitamos el mismo código 10 veces para ver como varia el histograma, ya que estamos seleccioando valores al azar.</p>
+<p>Como siguiente paso cambiemos el valor de n a dos (n &lt;- 2), luego a tres, luego cuatro, cinco… etc.</p>
+<blockquote>
+<h3 id="ejercicio-1-1"><span class="header-section-number">8.1</span> Ejercicio 1</h3>
+<p>Discuta como varia la forma del histograma en la medida en que el valor de n aumenta.</p>
+</blockquote>
+<blockquote>
+<h3 id="ejercicio-2"><span class="header-section-number">8.1</span> Ejercicio 2</h3>
+<p>Convierta el código en una funcion de forma tal que pueda variar el valor de n para producir las graficas en una sola linea.</p>
+</blockquote>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="creando-objetos-simples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tablas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creación-de-bucles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelo-de-regresión-lineal.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -256,7 +261,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/03-Matrices.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/08-Modelos.Rmd",
 "text": "Edit"
 },
 "history": {

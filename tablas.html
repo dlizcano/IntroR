@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-15" />
+<meta name="date" content="2020-04-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="matrices.html"/>
-<link rel="next" href="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html"/>
+<link rel="next" href="creación-y-e-indexación-de-listas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -149,13 +149,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html"><a href="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html"><i class="fa fa-check"></i><b>5</b> Representación de la relación entre una variable continua y otra categórica: diagramas de caja (boxplots)</a></li>
-<li class="chapter" data-level="6" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>6</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>7</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="8" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>8</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="8.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>8.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
+<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
+<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
+<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
 <li class="divider"></li>
@@ -232,18 +239,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.4.1</span> como histograma</h3>
 <p>A veces es mucho más informativa una representación visual de los datos. La manera más rápida (y recomendada) de hacerse una idea de la distribución de los datos de una columna numérica es usando histogramas. En R, para representar el histograma de la columna Sepal.Width de iris se puede hacer:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Width)</a></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co">#### y para editar el grafico se especifican parametros adicionales</span></a>
 <a class="sourceLine" id="cb33-2" title="2"><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Width, <span class="dt">main =</span> <span class="st">&quot;iris: histograma de la anchura de los sépalos&quot;</span>,</a>
 <a class="sourceLine" id="cb33-3" title="3">      <span class="dt">xlab =</span> <span class="st">&quot;anchura del sépalo&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;frecuencia&quot;</span>,</a>
 <a class="sourceLine" id="cb33-4" title="4">      <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
 </div>
 <div id="como-dos-variables-numericas" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Como dos variables numericas</h3>
 <p>Por ejemplo representemos la lomgitud del sepalo versus el petalo.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Petal.Length)</a></code></pre></div>
-<p><img src="bookdown_intro_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="diagramas-de-caja-boxplots" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Diagramas de caja (boxplots)</h3>
+<p>Los diagramas de cajas (boxplot) estudian la distribución de una variable continua en función de una variable categórica. Están emparentados con los histogramas porque resumen la distribución de una variable continua. Para ello utilizan una representación todavía mas esquemática que la de un histograma: una caja y unos segmentos que acotan las regiones donde la variable continua concentra el grueso de las observaciones.</p>
+<p>Por ejemplo, podemos estudiar la distribución de la anchura del sépalo en iris en función de la especie usando diagramas de cajas así:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Width <span class="op">~</span><span class="st"> </span>iris<span class="op">$</span>Species, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,</a>
+<a class="sourceLine" id="cb35-2" title="2">        <span class="dt">main =</span> <span class="st">&quot;Especies de iris</span><span class="ch">\n</span><span class="st">según la anchura del sépalo&quot;</span>)</a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>La notación y ~ x es muy común en R y significa que vas a hacer algo con y en función de x; en este caso, algo es un diagrama de cajas. Cuando construyamos modelos, querremos entender la variable objetivo y en función de una o más variables predictoras y volveremos a hacer uso de esa notación.</p>
+
 </div>
 </div>
 </div>
@@ -253,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="representación-de-la-relación-entre-una-variable-continua-y-otra-categórica-diagramas-de-caja-boxplots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creación-y-e-indexación-de-listas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -295,7 +312,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown_intro.pdf"],
+"download": ["introR.pdf"],
 "toc": {
 "collapse": "subsection"
 },
@@ -304,6 +321,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
