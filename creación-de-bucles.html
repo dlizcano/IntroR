@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
 <li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
 <li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
@@ -221,21 +221,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb45-9" title="9"></a>
 <a class="sourceLine" id="cb45-10" title="10">datos</a></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4]
-##  [1,]    1    0    0    0
-##  [2,]    1    0    0    0
-##  [3,]    0    0    1    1
-##  [4,]    0    1    1    1
-##  [5,]    0    1    0    1
-##  [6,]    0    0    0    0
-##  [7,]    0    0    0    0
-##  [8,]    1    0    1    0
-##  [9,]    1    0    0    0
-## [10,]    0    1    0    0
-## [11,]    1    0    0    1
-## [12,]    0    0    1    0
-## [13,]    1    1    0    1
+##  [1,]    0    0    0    0
+##  [2,]    1    0    1    0
+##  [3,]    0    0    1    0
+##  [4,]    0    0    0    0
+##  [5,]    0    1    0    0
+##  [6,]    1    1    1    0
+##  [7,]    0    0    1    1
+##  [8,]    1    0    0    1
+##  [9,]    0    0    1    0
+## [10,]    0    0    1    0
+## [11,]    0    1    1    1
+## [12,]    0    0    1    1
+## [13,]    1    0    0    1
 ## [14,]    0    1    0    0
-## [15,]    1    0    1    0</code></pre>
+## [15,]    0    1    0    0</code></pre>
 <blockquote>
 <h3 id="ejercicio-1"><span class="header-section-number">7</span> Ejercicio:</h3>
 <p>Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos en 20 sitios con cinco visitas repetidas a cada sitio.</p>
@@ -256,53 +256,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb47-12" title="12"><span class="co"># llamemos la funcion </span></a>
 <a class="sourceLine" id="cb47-13" title="13"><span class="kw">genera_datos</span>() <span class="co">#con los valores por defecto</span></a></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4]
-##  [1,]    0    1    0    1
-##  [2,]    0    1    1    1
-##  [3,]    1    0    0    1
-##  [4,]    1    0    0    1
-##  [5,]    0    0    0    0
-##  [6,]    1    0    0    1
-##  [7,]    0    1    1    0
-##  [8,]    1    0    1    1
-##  [9,]    0    0    0    0
-## [10,]    0    1    1    1
-## [11,]    0    0    0    1
-## [12,]    1    1    1    1
-## [13,]    1    0    0    0
-## [14,]    0    1    0    0
-## [15,]    0    1    1    0</code></pre>
+##  [1,]    0    1    1    1
+##  [2,]    1    1    1    0
+##  [3,]    1    1    0    1
+##  [4,]    0    1    0    0
+##  [5,]    1    0    0    1
+##  [6,]    0    0    0    1
+##  [7,]    1    1    1    0
+##  [8,]    0    1    1    0
+##  [9,]    1    0    0    1
+## [10,]    0    1    0    1
+## [11,]    0    0    1    0
+## [12,]    1    1    0    0
+## [13,]    1    0    1    0
+## [14,]    0    1    1    0
+## [15,]    0    1    1    1</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">genera_datos</span>(<span class="dv">30</span>, <span class="dv">6</span>, <span class="fl">0.5</span>) <span class="co"># con 30 sitios, 6 visitas repetidas y probabilidad 0.5</span></a></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6]
-##  [1,]    0    1    1    1    1    0
-##  [2,]    0    0    0    1    1    1
+##  [1,]    1    1    0    1    1    1
+##  [2,]    0    0    1    1    1    1
 ##  [3,]    0    1    1    1    0    0
-##  [4,]    0    1    0    0    0    1
-##  [5,]    0    0    0    0    0    0
-##  [6,]    0    1    1    0    1    0
-##  [7,]    1    0    1    1    0    0
-##  [8,]    0    1    1    1    1    1
-##  [9,]    0    0    0    1    0    1
-## [10,]    1    0    1    0    0    1
-## [11,]    1    0    0    1    0    1
-## [12,]    0    1    1    1    1    0
-## [13,]    0    0    1    0    0    1
-## [14,]    1    0    0    0    1    0
-## [15,]    0    0    1    0    0    1
-## [16,]    1    0    1    1    1    0
-## [17,]    0    1    1    1    0    0
-## [18,]    1    1    0    1    1    1
-## [19,]    1    0    1    1    0    1
-## [20,]    0    0    1    1    1    0
-## [21,]    0    0    1    1    1    1
-## [22,]    0    0    0    1    1    0
-## [23,]    0    1    0    1    0    1
-## [24,]    0    1    1    0    0    1
+##  [4,]    1    1    0    1    0    1
+##  [5,]    1    0    1    1    0    0
+##  [6,]    0    0    0    1    1    0
+##  [7,]    1    1    1    1    1    0
+##  [8,]    0    1    0    0    0    1
+##  [9,]    1    1    0    1    0    0
+## [10,]    0    0    1    0    0    1
+## [11,]    1    0    0    0    1    1
+## [12,]    1    1    1    1    1    0
+## [13,]    0    1    0    0    0    0
+## [14,]    1    1    1    1    1    1
+## [15,]    1    0    1    1    1    1
+## [16,]    0    1    0    1    0    0
+## [17,]    1    1    0    0    0    0
+## [18,]    0    1    0    1    0    1
+## [19,]    1    0    1    0    1    1
+## [20,]    0    0    0    0    1    0
+## [21,]    0    1    1    0    0    1
+## [22,]    0    0    0    0    1    1
+## [23,]    0    1    1    1    1    0
+## [24,]    1    1    1    1    0    0
 ## [25,]    1    0    1    1    0    0
-## [26,]    0    0    1    1    0    0
-## [27,]    0    0    1    1    0    1
-## [28,]    1    0    1    0    1    1
-## [29,]    1    0    1    0    1    1
-## [30,]    0    0    0    1    0    0</code></pre>
+## [26,]    0    0    0    0    0    0
+## [27,]    1    0    1    0    0    1
+## [28,]    1    0    1    1    1    0
+## [29,]    1    1    0    1    1    0
+## [30,]    0    1    0    1    0    1</code></pre>
 
 </div>
 </div>

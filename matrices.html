@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
 <li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
 <li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
@@ -197,28 +197,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb19-3" title="3">value &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">12</span>)</a>
 <a class="sourceLine" id="cb19-4" title="4"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb19-5" title="5">value</a></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,] -0.2343870  1.7522584 -1.4016479
-## [2,] -0.3744444  0.2819748 -0.8465144
-## [3,]  0.5040423  0.7950413  2.1237978
-## [4,] -0.2720859 -1.3634144  0.4267210</code></pre>
+<pre><code>##             [,1]        [,2]       [,3]
+## [1,]  0.62039258  0.08877287 -0.9823788
+## [2,] -0.09317259 -0.84385083  0.5064257
+## [3,] -1.73069738 -0.94437961  0.6992603
+## [4,]  0.08418210 -0.98057068 -0.3185409</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
 <a class="sourceLine" id="cb21-2" title="2"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] -0.2343870  0.5040423 1.7522584
-## [2,] -0.3744444 -0.2720859 0.2819748</code></pre>
+<pre><code>##             [,1]       [,2]        [,3]
+## [1,]  0.62039258 -1.7306974  0.08877287
+## [2,] -0.09317259  0.0841821 -0.84385083</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] -0.2343870 -0.3744444 0.5040423
-## [2,] -0.2720859  1.7522584 0.2819748</code></pre>
+<pre><code>##           [,1]        [,2]       [,3]
+## [1,] 0.6203926 -0.09317259 -1.7306974
+## [2,] 0.0841821  0.08877287 -0.8438508</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Creating Matrices: rbind and cbind functions</span></a>
 <a class="sourceLine" id="cb25-2" title="2">value &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a>
 <a class="sourceLine" id="cb25-3" title="3">value2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(value,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb25-4" title="4">value2</a></code></pre></div>
-<pre><code>##            [,1]       [,2]        [,3]
-## [1,] -0.6507894 -1.9118252 -0.08904604
-## [2,]  0.1968005  0.7720526  0.51341349
-## [3,]  1.0000000  1.0000000  2.00000000</code></pre>
+<pre><code>##             [,1]       [,2]       [,3]
+## [1,] -0.04123393  0.5114932 1.18801781
+## [2,] -0.06775393 -0.3034902 0.02223938
+## [3,]  1.00000000  1.0000000 2.00000000</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">value3 &lt;-<span class="st"> </span><span class="kw">cbind</span>(value2,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
 <p>Las matrices son objetos que parecen tablas sin serlo en forma estricta.</p>
 

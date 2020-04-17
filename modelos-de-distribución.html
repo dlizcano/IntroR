@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
 <li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagramas de caja (boxplots)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
 <li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-mas-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o mas predictores</a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
 <li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
@@ -191,22 +191,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="modelos-de-distribución" class="section level1">
 <h1><span class="header-section-number">Capítulo 10</span> Modelos de distribución</h1>
+<p>En esta sección introduciremos algunos elementos matemáticos que no deben intimidarnos! Si bien las ecuaciones son aparentemente complejas el principio que hay detrás es muy elemental y se pude dominar mejor viendo los videos sugeridos.</p>
 <div id="binomial" class="section level2">
 <h2><span class="header-section-number">10.1</span> Binomial</h2>
 <p>Recordemos la ecuación de la distribución Binomial:</p>
-<span class="math display">\[\begin{aligned}
-$P(x)= frac{N!}{x!(N-x)!} pi^{x}(1-pi)^{N-x}$
-\end{aligned}\]</span>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  P\left( x \right) = \frac{{n!}}{{k!\left( {n - k} \right)!}}p^k q^{n - k} = \left( {\begin{array}{*{20}c} n \\ k \\ \end{array}} \right)p^k q^{n - k}
+  \tag{9.1}
+\end{equation}\]</span></p>
 <p>Donde:
-<span class="math inline">\(N\)</span> es el número de ensayos.
-<span class="math inline">\(x\)</span> es el número de exítos.
-<span class="math inline">\(\pi\)</span> es la probabilidad de exíto en cada ensayo.</p>
-<p>Por favor no se asuste por la aparente complejidad de la ecuación. Para simplificar la interpretacion usaremos en lugar de la ecuación, el álgebra del modelo.</p>
-<span class="math display">\[\begin{aligned}
-$y \sim \mathbf{Bin}(n,p)$
-\end{aligned}\]</span>
-<p>Donde <span class="math inline">\(X\)</span> se distribuye de forma binomial <span class="math inline">\(B\)</span> con los parametros <span class="math inline">\(n\)</span> que corresponde al numero de ensayos y <span class="math inline">\(p\)</span> a la probabilidad</p>
-<p>A continuación vamos a generar un set de <span class="math inline">\(n\)</span> datos con una probabilidad dada<span class="math inline">\(p\)</span>. Estos datos son almacenados en un dataframe y luego visualizados como una distribucion de freciencias. La lunea azul representa el promedio de esos datos.</p>
+<span class="math inline">\(n\)</span> es el número de ensayos.
+<span class="math inline">\(k\)</span> es el número de éxitos.
+<span class="math inline">\(p\)</span> es la probabilidad de exíto en un ensayo.
+<span class="math inline">\(q=1-p\)</span> es la probabilidad de fracasar en un ensayo.</p>
+<p>Por favor <em>no se asuste</em> por la aparente complejidad de la ecuación. Para simplificar la interpretación usaremos en lugar de la ecuación, el álgebra del modelo. Si desea aprender un poco mas de la distribución binomial le recomiendo el video que ha preparado <a href="https://www.youtube.com/watch?v=sRoflgDiCKo">Khan Academy.</a> con un interesante acento mexicano.</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  P\left( x \right) \sim \mathbf{Bin}(n,p)
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, el cual se distribuye de forma binomial <span class="math inline">\(Bin\)</span> con los parámetros: <span class="math inline">\(n\)</span> que corresponde al número de ensayos y <span class="math inline">\(p\)</span> a la probabilidad.</p>
+<p>A continuación, vamos a generar un set de <span class="math inline">\(n\)</span> datos con una probabilidad dada <span class="math inline">\(p\)</span>. Estos datos son almacenados en un dataframe y luego visualizados como una distribución de frecuencias. La línea azul representa el promedio de esos datos.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">n&lt;-<span class="dv">10</span> <span class="co"># numero de datos</span></a>
 <a class="sourceLine" id="cb62-2" title="2">p&lt;-<span class="st"> </span><span class="fl">0.5</span> <span class="co"># probabilidad (~proporcion de unos)</span></a>
 <a class="sourceLine" id="cb62-3" title="3"><span class="co"># Generemos datos con esa informacion </span></a>
@@ -219,49 +223,52 @@ $y \sim \mathbf{Bin}(n,p)$
 <a class="sourceLine" id="cb62-10" title="10">                   <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb62-11" title="11"><span class="st">        </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(estimado, <span class="dt">na.rm=</span>T)), </a>
 <a class="sourceLine" id="cb62-12" title="12">          <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">size=</span><span class="dv">1</span>) <span class="co"># media en azul</span></a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="introR_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <blockquote>
 <h3 id="ejercicio-6"><span class="header-section-number">10.1</span> Ejercicio:</h3>
-<p>Varie primero el numero de datos y luego la probabilidad haciendola cercana a cero y luego cercana a uno. Vea como camvia el promedio con el numero de datos y la probabilidad.</p>
+<p>Varié primero el número de datos y luego la probabilidad haciéndola cercana a cero y luego cercana a uno. Vea como cambia el promedio con el número de datos y la probabilidad.</p>
 </blockquote>
 </div>
 <div id="poisson" class="section level2">
 <h2><span class="header-section-number">10.2</span> Poisson</h2>
 <p>Recordemos la ecuación de la distribución Binomial:</p>
-<p>\begin{aligned}
-<span class="math inline">\(P(x) = \frac{\mu^{x}e^{-\mu}}{x!}\)</span>
-\begin{end}</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  P\left( x \right) = \frac{{e^{ - \mu } \mu ^x }}{{x!}}
+  \tag{9.1}
+\end{equation}\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\mu\)</span> es el numero medio de ocurrencia (exítos) en un intervalo en particular.
+<p><span class="math inline">\(\mu\)</span> es el número medio de ocurrencia (éxitos) en un intervalo en particular.
 <span class="math inline">\(e\)</span> es la constante 2.71828 (base of the Naperian logarithmic system).
-<span class="math inline">\(x\)</span> es el numero de ocurrencias (exítos).
+<span class="math inline">\(x\)</span> es el numero de ocurrencias (éxitos).
 <span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>.</p>
-<p>De igual forma que en la distribución binomial no nos dejemos asustar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho mas sencilla.</p>
-<span class="math display">\[\begin{aligned}
-$N \sim \mathbf{Poisson}(\lambda)$
-\end{aligned}\]</span>
-<p>Donde:
-.
-<span class="math inline">\(N\)</span> es el conteo (abundancia).
-<span class="math inline">\(\lambda\)</span> es la media de la distribución</p>
+<p>De igual forma que en la distribución binomial, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla. Si desea entender un poco mejor el proceso Poisson vean el video que preparo <a href="https://www.youtube.com/watch?v=Vhjiw8r8kR4">Khan Academy.</a></p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  P\left( x \right) \sim \mathbf{Pois}(\lambda)
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, el cual se distribuye de acuerdo a la distribución Poisson (<span class="math inline">\(Pois\)</span>) y que equivaldría a un valor específico del conteo.
+<span class="math inline">\(\lambda\)</span> es la media de la distribución.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">n &lt;-<span class="st"> </span><span class="dv">100</span></a>
 <a class="sourceLine" id="cb63-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">10</span></a>
 <a class="sourceLine" id="cb63-3" title="3">poisson_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;data&#39;</span> =<span class="st"> </span><span class="kw">rpois</span>(n, lambda))</a>
 <a class="sourceLine" id="cb63-4" title="4"></a>
-<a class="sourceLine" id="cb63-5" title="5">poisson_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb63-6" title="6"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> data, </a>
-<a class="sourceLine" id="cb63-7" title="7">                     <span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count))), </a>
-<a class="sourceLine" id="cb63-8" title="8">                     <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>,</a>
-<a class="sourceLine" id="cb63-9" title="9">                 <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-10" title="10"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> lambda, </a>
-<a class="sourceLine" id="cb63-11" title="11">             <span class="dt">size =</span> <span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb63-12" title="12">             <span class="dt">linetype =</span> <span class="st">&#39;dashed&#39;</span>,</a>
-<a class="sourceLine" id="cb63-13" title="13">             <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-14" title="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-15" title="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Number of successes per period&#39;</span>,</a>
-<a class="sourceLine" id="cb63-16" title="16">       <span class="dt">y =</span> <span class="st">&#39;Proportion&#39;</span>,</a>
-<a class="sourceLine" id="cb63-17" title="17">       <span class="dt">title =</span> <span class="st">&#39;1,000 samples of Pois(lambda = 10)&#39;</span>)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<a class="sourceLine" id="cb63-5" title="5"></a>
+<a class="sourceLine" id="cb63-6" title="6"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb63-7" title="7">poisson_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb63-8" title="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> data, </a>
+<a class="sourceLine" id="cb63-9" title="9">                     <span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count))), </a>
+<a class="sourceLine" id="cb63-10" title="10">                     <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb63-11" title="11">                 <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-12" title="12"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> lambda, </a>
+<a class="sourceLine" id="cb63-13" title="13">             <span class="dt">size =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb63-14" title="14">             <span class="dt">linetype =</span> <span class="st">&#39;dashed&#39;</span>,</a>
+<a class="sourceLine" id="cb63-15" title="15">             <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-16" title="16"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-17" title="17"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Number of successes per period&#39;</span>,</a>
+<a class="sourceLine" id="cb63-18" title="18">       <span class="dt">y =</span> <span class="st">&#39;Proportion&#39;</span>,</a>
+<a class="sourceLine" id="cb63-19" title="19">       <span class="dt">title =</span> <span class="st">&#39;1,000 samples of Pois(lambda = 10)&#39;</span>)</a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <blockquote>
 <h3 id="ejercicio-7"><span class="header-section-number">10.2</span> Ejercicio:</h3>
 <p>Use el modelo para variar n y lambda… vea que sucede.</p>
