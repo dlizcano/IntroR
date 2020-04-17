@@ -278,9 +278,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="normal-gausiana" class="section level2">
 <h2><span class="header-section-number">10.3</span> Normal (Gausiana)</h2>
 <p>La ecuación de la distribución Binomial es:</p>
-<p><span class="math display" id="eq:binom">\[\begin{equation} 
-P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
-  \tag{9.1}
+<p><span class="math display" id="eq:norm">\[\begin{equation} 
+P\left(x \right) =  \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}
+\tag{10.1}
 \end{equation}\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>,
@@ -290,7 +290,7 @@ P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \m
 <span class="math inline">\(e\)</span> es 2.71828</p>
 <p>De igual forma que en las distribuciónes anteriores, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla.</p>
 <p><span class="math display" id="eq:binom">\[\begin{equation} 
-  P\left( x \right) \sim \mathbf{N}(\mu, \sigma)
+  P\left( x \right) \sim \mathcal{N}(\mu,\,\sigma^{2})\
   \tag{9.1}
 \end{equation}\]</span></p>
 <p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, por lo general un valor continuo.

@@ -212,15 +212,22 @@ cuando <span class="math inline">\(\beta\)</span> = 0, no hay relación signific
 ## lm(formula = Sepal.Length ~ Petal.Length, data = iris)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.24675 -0.29657 -0.01515  0.27676  1.00269 
+##      Min       1Q   Median       3Q 
+## -1.24675 -0.29657 -0.01515  0.27676 
+##      Max 
+##  1.00269 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   4.30660    0.07839   54.94   &lt;2e-16 ***
-## Petal.Length  0.40892    0.01889   21.65   &lt;2e-16 ***
+##              Estimate Std. Error
+## (Intercept)   4.30660    0.07839
+## Petal.Length  0.40892    0.01889
+##              t value Pr(&gt;|t|)    
+## (Intercept)    54.94   &lt;2e-16 ***
+## Petal.Length   21.65   &lt;2e-16 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+##   0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05
+##   &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.4071 on 148 degrees of freedom
 ## Multiple R-squared:   0.76,  Adjusted R-squared:  0.7583 
@@ -236,12 +243,18 @@ cuando <span class="math inline">\(\beta\)</span> = 0, no hay relación signific
 <p>Ahora utilizaremos el modelo que hemos calculado para predecir cómo se comporta la longitud del sépalo cuando la longitud del pétalo esta entre 2 y 4.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">newdato &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">Petal.Length =</span> <span class="kw">seq</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dt">by =</span> <span class="fl">0.1</span>))</a>
 <a class="sourceLine" id="cb57-2" title="2"><span class="kw">predict</span>(model1, <span class="dt">newdata =</span> newdato) <span class="co"># predice sepalo cuando petalo es de 4 a 7</span></a></code></pre></div>
-<pre><code>##        1        2        3        4        5        6        7        8 
-## 5.124448 5.165340 5.206232 5.247125 5.288017 5.328909 5.369801 5.410694 
-##        9       10       11       12       13       14       15       16 
-## 5.451586 5.492478 5.533370 5.574262 5.615155 5.656047 5.696939 5.737831 
-##       17       18       19       20       21 
-## 5.778724 5.819616 5.860508 5.901400 5.942293</code></pre>
+<pre><code>##        1        2        3        4 
+## 5.124448 5.165340 5.206232 5.247125 
+##        5        6        7        8 
+## 5.288017 5.328909 5.369801 5.410694 
+##        9       10       11       12 
+## 5.451586 5.492478 5.533370 5.574262 
+##       13       14       15       16 
+## 5.615155 5.656047 5.696939 5.737831 
+##       17       18       19       20 
+## 5.778724 5.819616 5.860508 5.901400 
+##       21 
+## 5.942293</code></pre>
 <blockquote>
 <h3 id="ejercicio-4"><span class="header-section-number">9.1</span> Ejercicio:</h3>
 <p>Use el modelo para predecir el sépalo cuando el pétalo tiene un valor de 7 o mas</p>
@@ -262,17 +275,36 @@ y = \alpha +\beta_{1}\mathit{x} +\beta_{2}\mathit{x} +\epsilon,
 ## lm(formula = Sepal.Length ~ Petal.Length * Petal.Width, data = iris)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.00058 -0.25209  0.00766  0.21640  0.89542 
+##      Min       1Q   Median       3Q 
+## -1.00058 -0.25209  0.00766  0.21640 
+##      Max 
+##  0.89542 
 ## 
 ## Coefficients:
-##                          Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)               4.57717    0.11195  40.885  &lt; 2e-16 ***
-## Petal.Length              0.44168    0.06551   6.742 3.38e-10 ***
-## Petal.Width              -1.23932    0.21937  -5.649 8.16e-08 ***
-## Petal.Length:Petal.Width  0.18859    0.03357   5.617 9.50e-08 ***
+##                          Estimate
+## (Intercept)               4.57717
+## Petal.Length              0.44168
+## Petal.Width              -1.23932
+## Petal.Length:Petal.Width  0.18859
+##                          Std. Error
+## (Intercept)                 0.11195
+## Petal.Length                0.06551
+## Petal.Width                 0.21937
+## Petal.Length:Petal.Width    0.03357
+##                          t value
+## (Intercept)               40.885
+## Petal.Length               6.742
+## Petal.Width               -5.649
+## Petal.Length:Petal.Width   5.617
+##                          Pr(&gt;|t|)    
+## (Intercept)               &lt; 2e-16 ***
+## Petal.Length             3.38e-10 ***
+## Petal.Width              8.16e-08 ***
+## Petal.Length:Petal.Width 9.50e-08 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+##   0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05
+##   &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.3667 on 146 degrees of freedom
 ## Multiple R-squared:  0.8078, Adjusted R-squared:  0.8039 

@@ -296,11 +296,11 @@ Otra forma es usar funciones como rep y seq
 
 \begin{figure}
 
-{\centering \includegraphics{introR_files/figure-latex/unnamed-chunk-38-1} 
+{\centering \includegraphics{introR_files/figure-latex/unnamed-chunk-9-1} 
 
 }
 
-\caption{figura de una curva exponencial.}\label{fig:unnamed-chunk-38}
+\caption{figura de una curva exponencial.}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 \begin{Shaded}
@@ -312,7 +312,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.248188e-17
+## [1] -1.855937e-17
 \end{verbatim}
 
 \begin{Shaded}
@@ -322,7 +322,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9829119
+## [1] 0.9059833
 \end{verbatim}
 
 \hypertarget{inspeccionando-vectores}{%
@@ -369,11 +369,11 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,]  1.7600046  1.7282957 -2.0237920
-## [2,]  1.5284074  0.5696387 -1.5577897
-## [3,] -0.4106965 -0.3702340 -1.5903656
-## [4,]  0.1566587 -1.3151354 -0.9765426
+##           [,1]        [,2]       [,3]
+## [1,] 0.1828039  0.07979344 -0.2170917
+## [2,] 0.7276454  0.01671579 -0.1022420
+## [3,] 0.8073935  1.06942037 -0.4364500
+## [4,] 2.0129914 -0.25094409  1.5179156
 \end{verbatim}
 
 \begin{Shaded}
@@ -384,9 +384,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]       [,2]      [,3]
-## [1,] 1.760005 -0.4106965 1.7282957
-## [2,] 1.528407  0.1566587 0.5696387
+##           [,1]      [,2]       [,3]
+## [1,] 0.1828039 0.8073935 0.07979344
+## [2,] 0.7276454 2.0129914 0.01671579
 \end{verbatim}
 
 \begin{Shaded}
@@ -396,9 +396,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]     [,2]       [,3]
-## [1,] 1.7600046 1.528407 -0.4106965
-## [2,] 0.1566587 1.728296  0.5696387
+##           [,1]       [,2]       [,3]
+## [1,] 0.1828039 0.72764542 0.80739346
+## [2,] 2.0129914 0.07979344 0.01671579
 \end{verbatim}
 
 \begin{Shaded}
@@ -411,10 +411,14 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,] -1.4708786 -0.9915604 -2.287183
-## [2,] -0.7605319  1.2545491  1.188105
-## [3,]  1.0000000  1.0000000  2.000000
+##            [,1]      [,2]
+## [1,] -1.6613325 -1.655525
+## [2,] -0.7019984  1.096754
+## [3,]  1.0000000  1.000000
+##              [,3]
+## [1,]  0.009068416
+## [2,] -2.423299212
+## [3,]  2.000000000
 \end{verbatim}
 
 \begin{Shaded}
@@ -525,7 +529,7 @@ A veces es mucho más informativa una representación visual de los datos. La ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-46-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-17-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -536,7 +540,7 @@ A veces es mucho más informativa una representación visual de los datos. La ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-46-2.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-17-2.pdf}
 
 \hypertarget{como-dos-variables-numericas}{%
 \subsection{Como dos variables numericas}\label{como-dos-variables-numericas}}
@@ -549,7 +553,7 @@ Por ejemplo representemos la lomgitud del sepalo versus el petalo.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 \hypertarget{diagrama-de-caja-boxplots}{%
 \subsection{Diagrama de caja (boxplots)}\label{diagrama-de-caja-boxplots}}
@@ -565,7 +569,7 @@ Por ejemplo, podemos estudiar la distribución de la anchura del sépalo en iris
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-48-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 La notación y \textasciitilde{} x es muy común en R y significa que vas a hacer algo con y en función de x; en este caso, algo es un diagrama de cajas. Cuando construyamos modelos, querremos entender la variable objetivo y en función de una o más variables predictoras y volveremos a hacer uso de esa notación.
 
@@ -608,10 +612,13 @@ las listas disponen de un operador para extraer elementos, los dobles corchetes,
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa
-## [10] setosa setosa setosa setosa setosa setosa setosa setosa setosa
-## [19] setosa setosa setosa setosa setosa
-## Levels: setosa versicolor virginica
+##  [1] setosa setosa setosa setosa
+##  [5] setosa setosa setosa setosa
+##  [9] setosa setosa setosa setosa
+## [13] setosa setosa setosa setosa
+## [17] setosa setosa setosa setosa
+## [21] setosa setosa setosa
+## 3 Levels: setosa ... virginica
 \end{verbatim}
 
 \hypertarget{creaciuxf3n-de-funciones}{%
@@ -639,7 +646,7 @@ Creemos una función que opera sobre un vector que vamos a llamar x
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.1272468
+## [1] 0.0924693
 \end{verbatim}
 
 \hypertarget{creaciuxf3n-de-bucles}{%
@@ -693,21 +700,21 @@ Hagamos un bucle mas interesante que simula datos de pesencia ausencia obtenidos
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    1    1    0    0
-##  [2,]    0    1    0    1
-##  [3,]    0    1    1    1
-##  [4,]    0    0    1    0
-##  [5,]    1    0    0    0
-##  [6,]    0    0    1    1
-##  [7,]    1    0    1    1
-##  [8,]    0    0    1    1
-##  [9,]    1    1    1    0
-## [10,]    1    0    1    1
-## [11,]    1    1    1    0
-## [12,]    1    0    0    1
-## [13,]    0    1    1    1
-## [14,]    1    1    0    0
-## [15,]    0    1    0    0
+##  [1,]    1    1    0    1
+##  [2,]    0    0    1    0
+##  [3,]    1    0    1    1
+##  [4,]    1    1    0    0
+##  [5,]    0    0    1    1
+##  [6,]    1    1    1    0
+##  [7,]    1    0    1    0
+##  [8,]    0    0    0    1
+##  [9,]    0    1    0    0
+## [10,]    0    1    1    0
+## [11,]    1    1    0    1
+## [12,]    1    1    1    0
+## [13,]    1    0    0    0
+## [14,]    1    0    0    0
+## [15,]    1    1    0    0
 \end{verbatim}
 
 \begin{quote}
@@ -740,21 +747,21 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    0    0    1    1
-##  [2,]    0    0    1    1
-##  [3,]    1    0    1    1
+##  [1,]    1    0    0    0
+##  [2,]    0    1    1    0
+##  [3,]    1    1    0    1
 ##  [4,]    1    1    1    0
-##  [5,]    1    1    1    0
-##  [6,]    0    1    0    0
-##  [7,]    1    0    0    0
-##  [8,]    0    0    1    0
-##  [9,]    0    1    1    1
-## [10,]    0    0    1    0
-## [11,]    0    1    1    0
-## [12,]    1    0    1    1
-## [13,]    1    0    0    1
-## [14,]    0    1    0    1
-## [15,]    0    1    0    0
+##  [5,]    1    1    1    1
+##  [6,]    0    1    1    1
+##  [7,]    0    1    0    1
+##  [8,]    1    0    0    0
+##  [9,]    0    0    1    1
+## [10,]    0    1    0    1
+## [11,]    1    0    1    0
+## [12,]    0    1    1    0
+## [13,]    1    1    1    1
+## [14,]    1    1    1    0
+## [15,]    0    1    1    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -765,36 +772,36 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5] [,6]
-##  [1,]    0    0    0    0    0    0
-##  [2,]    0    0    1    0    0    1
-##  [3,]    1    1    0    1    1    0
-##  [4,]    1    0    0    1    0    0
-##  [5,]    0    1    0    1    0    0
-##  [6,]    1    1    0    1    0    1
-##  [7,]    1    0    0    1    0    0
-##  [8,]    1    1    0    1    0    0
-##  [9,]    1    0    0    0    0    0
-## [10,]    1    0    1    0    0    0
-## [11,]    0    1    1    1    1    0
-## [12,]    0    0    1    0    1    0
-## [13,]    1    0    1    1    1    1
-## [14,]    0    0    1    0    1    1
-## [15,]    1    0    1    0    1    0
-## [16,]    0    1    1    1    1    0
-## [17,]    1    0    0    0    1    0
-## [18,]    0    1    1    1    1    0
-## [19,]    1    0    0    1    1    1
-## [20,]    0    0    0    1    1    0
-## [21,]    1    0    1    0    1    1
-## [22,]    0    1    1    1    0    0
-## [23,]    1    0    0    1    1    1
-## [24,]    1    1    1    1    1    1
-## [25,]    0    0    1    0    0    0
-## [26,]    1    1    0    1    1    1
-## [27,]    1    0    1    1    1    1
-## [28,]    0    0    1    0    1    1
-## [29,]    0    1    0    0    0    0
-## [30,]    1    1    1    0    0    0
+##  [1,]    0    0    1    1    1    0
+##  [2,]    0    0    1    1    0    0
+##  [3,]    0    1    0    0    1    1
+##  [4,]    1    1    0    1    1    1
+##  [5,]    0    1    1    1    1    0
+##  [6,]    0    0    0    1    0    1
+##  [7,]    0    1    1    1    1    1
+##  [8,]    0    1    0    1    1    0
+##  [9,]    1    1    1    1    0    0
+## [10,]    0    0    0    1    1    0
+## [11,]    1    0    1    1    1    1
+## [12,]    1    1    1    1    1    1
+## [13,]    0    1    0    0    1    1
+## [14,]    1    0    0    1    1    1
+## [15,]    1    0    0    1    1    0
+## [16,]    1    1    1    0    1    0
+## [17,]    1    1    0    0    0    1
+## [18,]    1    1    0    1    0    1
+## [19,]    0    1    0    0    1    0
+## [20,]    0    0    1    0    1    0
+## [21,]    1    1    0    1    1    0
+## [22,]    0    0    1    0    1    1
+## [23,]    0    0    1    1    0    1
+## [24,]    0    0    0    1    1    0
+## [25,]    1    1    1    0    0    1
+## [26,]    1    0    1    0    1    0
+## [27,]    1    0    1    0    0    1
+## [28,]    1    1    0    0    1    1
+## [29,]    0    0    0    0    0    1
+## [30,]    1    0    1    1    1    0
 \end{verbatim}
 
 \hypertarget{modelos-en-r}{%
@@ -840,7 +847,7 @@ Haremos una comparación grafica de la forma del histograma con la media (origin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-55-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-26-1.pdf}
 
 Ahora repitamos el mismo código 10 veces para ver como varia el histograma, ya que estamos seleccioando valores al azar.
 
@@ -895,15 +902,22 @@ Usaremos el set de datos iris para realizar una regresión lineal entre la longi
 ## lm(formula = Sepal.Length ~ Petal.Length, data = iris)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.24675 -0.29657 -0.01515  0.27676  1.00269 
+##      Min       1Q   Median       3Q 
+## -1.24675 -0.29657 -0.01515  0.27676 
+##      Max 
+##  1.00269 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   4.30660    0.07839   54.94   <2e-16 ***
-## Petal.Length  0.40892    0.01889   21.65   <2e-16 ***
+##              Estimate Std. Error
+## (Intercept)   4.30660    0.07839
+## Petal.Length  0.40892    0.01889
+##              t value Pr(>|t|)    
+## (Intercept)    54.94   <2e-16 ***
+## Petal.Length   21.65   <2e-16 ***
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  
+##   0 '***' 0.001 '**' 0.01 '*' 0.05
+##   '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.4071 on 148 degrees of freedom
 ## Multiple R-squared:   0.76,  Adjusted R-squared:  0.7583 
@@ -918,7 +932,7 @@ Usaremos el set de datos iris para realizar una regresión lineal entre la longi
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-27-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-3}{%
@@ -937,12 +951,18 @@ Ahora utilizaremos el modelo que hemos calculado para predecir cómo se comporta
 \end{Shaded}
 
 \begin{verbatim}
-##        1        2        3        4        5        6        7        8 
-## 5.124448 5.165340 5.206232 5.247125 5.288017 5.328909 5.369801 5.410694 
-##        9       10       11       12       13       14       15       16 
-## 5.451586 5.492478 5.533370 5.574262 5.615155 5.656047 5.696939 5.737831 
-##       17       18       19       20       21 
-## 5.778724 5.819616 5.860508 5.901400 5.942293
+##        1        2        3        4 
+## 5.124448 5.165340 5.206232 5.247125 
+##        5        6        7        8 
+## 5.288017 5.328909 5.369801 5.410694 
+##        9       10       11       12 
+## 5.451586 5.492478 5.533370 5.574262 
+##       13       14       15       16 
+## 5.615155 5.656047 5.696939 5.737831 
+##       17       18       19       20 
+## 5.778724 5.819616 5.860508 5.901400 
+##       21 
+## 5.942293
 \end{verbatim}
 
 \begin{quote}
@@ -977,17 +997,36 @@ Usaremos mas (+) para combinar efectos. Dos puntos (:) para interacciones A:B; y
 ## lm(formula = Sepal.Length ~ Petal.Length * Petal.Width, data = iris)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.00058 -0.25209  0.00766  0.21640  0.89542 
+##      Min       1Q   Median       3Q 
+## -1.00058 -0.25209  0.00766  0.21640 
+##      Max 
+##  0.89542 
 ## 
 ## Coefficients:
-##                          Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)               4.57717    0.11195  40.885  < 2e-16 ***
-## Petal.Length              0.44168    0.06551   6.742 3.38e-10 ***
-## Petal.Width              -1.23932    0.21937  -5.649 8.16e-08 ***
-## Petal.Length:Petal.Width  0.18859    0.03357   5.617 9.50e-08 ***
+##                          Estimate
+## (Intercept)               4.57717
+## Petal.Length              0.44168
+## Petal.Width              -1.23932
+## Petal.Length:Petal.Width  0.18859
+##                          Std. Error
+## (Intercept)                 0.11195
+## Petal.Length                0.06551
+## Petal.Width                 0.21937
+## Petal.Length:Petal.Width    0.03357
+##                          t value
+## (Intercept)               40.885
+## Petal.Length               6.742
+## Petal.Width               -5.649
+## Petal.Length:Petal.Width   5.617
+##                          Pr(>|t|)    
+## (Intercept)               < 2e-16 ***
+## Petal.Length             3.38e-10 ***
+## Petal.Width              8.16e-08 ***
+## Petal.Length:Petal.Width 9.50e-08 ***
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  
+##   0 '***' 0.001 '**' 0.01 '*' 0.05
+##   '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.3667 on 146 degrees of freedom
 ## Multiple R-squared:  0.8078, Adjusted R-squared:  0.8039 
@@ -1007,7 +1046,7 @@ Usaremos mas (+) para combinar efectos. Dos puntos (:) para interacciones A:B; y
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-58-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-29-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-5}{%
@@ -1066,7 +1105,7 @@ A continuación, vamos a generar un set de \(n\) datos con una probabilidad dada
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-30-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-6}{%
@@ -1128,7 +1167,7 @@ Donde:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-31-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-7}{%
@@ -1143,8 +1182,8 @@ Use el modelo para variar n y lambda\ldots{} vea que sucede.
 La ecuación de la distribución Binomial es:
 
 \begin{equation} 
-P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
-  \label{eq:binom}
+P\left(x \right) =  \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}
+\label{eq:norm}
 \end{equation}
 
 Donde:
@@ -1158,7 +1197,7 @@ Donde:
 De igual forma que en las distribuciónes anteriores, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla.
 
 \begin{equation} 
-  P\left( x \right) \sim \mathbf{N}(\mu, \sigma)
+  P\left( x \right) \sim \mathcal{N}(\mu,\,\sigma^{2})\
   \label{eq:binom}
 \end{equation}
 
@@ -1187,7 +1226,7 @@ Veamola graficamente:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-32-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-8}{%
