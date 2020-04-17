@@ -199,32 +199,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb19-4" title="4"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb19-5" title="5">value</a></code></pre></div>
 <pre><code>##            [,1]        [,2]
-## [1,]  0.2723374  0.26277244
-## [2,]  1.2951543 -0.09764876
-## [3,] -0.1109773 -1.74407379
-## [4,] -0.4548079  0.14576836
-##            [,3]
-## [1,] -0.3825638
-## [2,]  0.6977345
-## [3,]  0.5058699
-## [4,] -0.3176553</code></pre>
+## [1,]  1.0619202  0.26409631
+## [2,] -1.1118474 -1.10853308
+## [3,]  0.4516219 -0.97803826
+## [4,]  0.6271778 -0.05672085
+##             [,3]
+## [1,] -1.12131332
+## [2,]  0.48460897
+## [3,]  2.00927861
+## [4,]  0.02008371</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">dim</span>(value) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
 <a class="sourceLine" id="cb21-2" title="2"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>##           [,1]       [,2]        [,3]
-## [1,] 0.2723374 -0.1109773  0.26277244
-## [2,] 1.2951543 -0.4548079 -0.09764876</code></pre>
+<pre><code>##           [,1]      [,2]       [,3]
+## [1,]  1.061920 0.4516219  0.2640963
+## [2,] -1.111847 0.6271778 -1.1085331</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a></code></pre></div>
-<pre><code>##            [,1]      [,2]        [,3]
-## [1,]  0.2723374 1.2951543 -0.11097727
-## [2,] -0.4548079 0.2627724 -0.09764876</code></pre>
+<pre><code>##           [,1]       [,2]       [,3]
+## [1,] 1.0619202 -1.1118474  0.4516219
+## [2,] 0.6271778  0.2640963 -1.1085331</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Creating Matrices: rbind and cbind functions</span></a>
 <a class="sourceLine" id="cb25-2" title="2">value &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="dt">byrow=</span>T)</a>
 <a class="sourceLine" id="cb25-3" title="3">value2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(value,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb25-4" title="4">value2</a></code></pre></div>
-<pre><code>##           [,1]       [,2]       [,3]
-## [1,]  1.433205 -0.1384094 -0.6159354
-## [2,] -1.236121  0.6293339 -0.3880002
-## [3,]  1.000000  1.0000000  2.0000000</code></pre>
+<pre><code>##            [,1]      [,2]      [,3]
+## [1,] -0.0626401 0.8323116 -1.240701
+## [2,]  0.7302385 0.2717537  1.451055
+## [3,]  1.0000000 1.0000000  2.000000</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">value3 &lt;-<span class="st"> </span><span class="kw">cbind</span>(value2,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
 <p>Las matrices son objetos que parecen tablas sin serlo en forma estricta.</p>
 
