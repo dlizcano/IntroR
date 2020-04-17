@@ -130,7 +130,7 @@
 
 \title{Introducción a R}
 \author{Diego J. Lizcano}
-\date{2020-04-16}
+\date{2020-04-17}
 
 \begin{document}
 \maketitle
@@ -296,11 +296,11 @@ Otra forma es usar funciones como rep y seq
 
 \begin{figure}
 
-{\centering \includegraphics{introR_files/figure-latex/unnamed-chunk-9-1} 
+{\centering \includegraphics{introR_files/figure-latex/unnamed-chunk-38-1} 
 
 }
 
-\caption{figura de una curva exponencial.}\label{fig:unnamed-chunk-9}
+\caption{figura de una curva exponencial.}\label{fig:unnamed-chunk-38}
 \end{figure}
 
 \begin{Shaded}
@@ -312,7 +312,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -4.434929e-18
+## [1] -1.248188e-17
 \end{verbatim}
 
 \begin{Shaded}
@@ -322,7 +322,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.7059266
+## [1] 0.9829119
 \end{verbatim}
 
 \hypertarget{inspeccionando-vectores}{%
@@ -369,11 +369,11 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]       [,2]         [,3]
-## [1,] 1.2101429 0.05277928  0.836124049
-## [2,] 1.0808611 0.20174594 -0.683518088
-## [3,] 0.8406391 0.82166248  0.002121078
-## [4,] 1.5424565 0.32236216  0.994068965
+##            [,1]       [,2]       [,3]
+## [1,]  1.7600046  1.7282957 -2.0237920
+## [2,]  1.5284074  0.5696387 -1.5577897
+## [3,] -0.4106965 -0.3702340 -1.5903656
+## [4,]  0.1566587 -1.3151354 -0.9765426
 \end{verbatim}
 
 \begin{Shaded}
@@ -384,9 +384,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]      [,2]       [,3]
-## [1,] 1.210143 0.8406391 0.05277928
-## [2,] 1.080861 1.5424565 0.20174594
+##          [,1]       [,2]      [,3]
+## [1,] 1.760005 -0.4106965 1.7282957
+## [2,] 1.528407  0.1566587 0.5696387
 \end{verbatim}
 
 \begin{Shaded}
@@ -396,9 +396,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]       [,2]      [,3]
-## [1,] 1.210143 1.08086112 0.8406391
-## [2,] 1.542456 0.05277928 0.2017459
+##           [,1]     [,2]       [,3]
+## [1,] 1.7600046 1.528407 -0.4106965
+## [2,] 0.1566587 1.728296  0.5696387
 \end{verbatim}
 
 \begin{Shaded}
@@ -411,10 +411,10 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]       [,2]       [,3]
-## [1,] -0.96879477 -0.5727267 -0.6638291
-## [2,] -0.09025622 -0.9976963  2.1658362
-## [3,]  1.00000000  1.0000000  2.0000000
+##            [,1]       [,2]      [,3]
+## [1,] -1.4708786 -0.9915604 -2.287183
+## [2,] -0.7605319  1.2545491  1.188105
+## [3,]  1.0000000  1.0000000  2.000000
 \end{verbatim}
 
 \begin{Shaded}
@@ -525,7 +525,7 @@ A veces es mucho más informativa una representación visual de los datos. La ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -536,7 +536,7 @@ A veces es mucho más informativa una representación visual de los datos. La ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-17-2.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-46-2.pdf}
 
 \hypertarget{como-dos-variables-numericas}{%
 \subsection{Como dos variables numericas}\label{como-dos-variables-numericas}}
@@ -549,7 +549,7 @@ Por ejemplo representemos la lomgitud del sepalo versus el petalo.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-47-1.pdf}
 
 \hypertarget{diagrama-de-caja-boxplots}{%
 \subsection{Diagrama de caja (boxplots)}\label{diagrama-de-caja-boxplots}}
@@ -565,7 +565,7 @@ Por ejemplo, podemos estudiar la distribución de la anchura del sépalo en iris
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-48-1.pdf}
 
 La notación y \textasciitilde{} x es muy común en R y significa que vas a hacer algo con y en función de x; en este caso, algo es un diagrama de cajas. Cuando construyamos modelos, querremos entender la variable objetivo y en función de una o más variables predictoras y volveremos a hacer uso de esa notación.
 
@@ -639,7 +639,7 @@ Creemos una función que opera sobre un vector que vamos a llamar x
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.08133714
+## [1] -0.1272468
 \end{verbatim}
 
 \hypertarget{creaciuxf3n-de-bucles}{%
@@ -693,21 +693,21 @@ Hagamos un bucle mas interesante que simula datos de pesencia ausencia obtenidos
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    0    0    1    0
-##  [2,]    0    0    0    1
-##  [3,]    0    0    0    0
-##  [4,]    0    1    1    1
-##  [5,]    1    1    0    0
-##  [6,]    0    1    1    0
-##  [7,]    1    0    0    1
-##  [8,]    1    0    1    0
-##  [9,]    0    0    1    1
-## [10,]    0    1    0    0
-## [11,]    1    0    0    1
-## [12,]    0    1    1    1
-## [13,]    1    1    1    0
-## [14,]    1    0    0    0
-## [15,]    0    1    0    1
+##  [1,]    1    1    0    0
+##  [2,]    0    1    0    1
+##  [3,]    0    1    1    1
+##  [4,]    0    0    1    0
+##  [5,]    1    0    0    0
+##  [6,]    0    0    1    1
+##  [7,]    1    0    1    1
+##  [8,]    0    0    1    1
+##  [9,]    1    1    1    0
+## [10,]    1    0    1    1
+## [11,]    1    1    1    0
+## [12,]    1    0    0    1
+## [13,]    0    1    1    1
+## [14,]    1    1    0    0
+## [15,]    0    1    0    0
 \end{verbatim}
 
 \begin{quote}
@@ -740,21 +740,21 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    1    0    1    1
+##  [1,]    0    0    1    1
 ##  [2,]    0    0    1    1
-##  [3,]    1    0    0    0
-##  [4,]    0    1    0    0
-##  [5,]    0    0    0    1
-##  [6,]    0    0    0    0
-##  [7,]    0    1    1    1
-##  [8,]    0    1    0    0
-##  [9,]    1    1    0    1
-## [10,]    0    1    1    0
-## [11,]    0    1    1    1
-## [12,]    1    0    1    0
-## [13,]    0    0    0    0
-## [14,]    0    1    1    0
-## [15,]    0    1    0    1
+##  [3,]    1    0    1    1
+##  [4,]    1    1    1    0
+##  [5,]    1    1    1    0
+##  [6,]    0    1    0    0
+##  [7,]    1    0    0    0
+##  [8,]    0    0    1    0
+##  [9,]    0    1    1    1
+## [10,]    0    0    1    0
+## [11,]    0    1    1    0
+## [12,]    1    0    1    1
+## [13,]    1    0    0    1
+## [14,]    0    1    0    1
+## [15,]    0    1    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -765,36 +765,36 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5] [,6]
-##  [1,]    0    1    1    1    0    1
-##  [2,]    1    1    0    1    1    1
-##  [3,]    1    1    1    1    1    1
-##  [4,]    0    0    0    0    1    0
-##  [5,]    0    0    0    1    1    0
-##  [6,]    0    1    1    1    0    1
-##  [7,]    0    0    0    1    0    1
-##  [8,]    1    1    1    1    1    0
-##  [9,]    0    0    0    1    0    0
-## [10,]    0    0    1    1    0    1
-## [11,]    1    1    0    0    1    0
-## [12,]    1    1    0    1    0    1
-## [13,]    0    1    0    1    1    0
-## [14,]    1    0    1    1    1    0
-## [15,]    0    1    0    1    0    1
-## [16,]    1    0    0    1    0    1
-## [17,]    0    0    1    0    0    1
-## [18,]    0    0    1    0    1    1
-## [19,]    1    0    1    1    0    1
-## [20,]    1    0    1    0    1    1
-## [21,]    1    1    0    0    1    1
-## [22,]    1    0    1    0    0    1
-## [23,]    1    0    1    1    0    0
-## [24,]    0    0    0    0    1    1
-## [25,]    0    0    1    1    0    0
-## [26,]    1    1    1    0    0    1
-## [27,]    0    1    1    1    0    1
-## [28,]    0    1    1    0    0    1
-## [29,]    1    1    0    0    0    1
-## [30,]    1    0    1    1    1    1
+##  [1,]    0    0    0    0    0    0
+##  [2,]    0    0    1    0    0    1
+##  [3,]    1    1    0    1    1    0
+##  [4,]    1    0    0    1    0    0
+##  [5,]    0    1    0    1    0    0
+##  [6,]    1    1    0    1    0    1
+##  [7,]    1    0    0    1    0    0
+##  [8,]    1    1    0    1    0    0
+##  [9,]    1    0    0    0    0    0
+## [10,]    1    0    1    0    0    0
+## [11,]    0    1    1    1    1    0
+## [12,]    0    0    1    0    1    0
+## [13,]    1    0    1    1    1    1
+## [14,]    0    0    1    0    1    1
+## [15,]    1    0    1    0    1    0
+## [16,]    0    1    1    1    1    0
+## [17,]    1    0    0    0    1    0
+## [18,]    0    1    1    1    1    0
+## [19,]    1    0    0    1    1    1
+## [20,]    0    0    0    1    1    0
+## [21,]    1    0    1    0    1    1
+## [22,]    0    1    1    1    0    0
+## [23,]    1    0    0    1    1    1
+## [24,]    1    1    1    1    1    1
+## [25,]    0    0    1    0    0    0
+## [26,]    1    1    0    1    1    1
+## [27,]    1    0    1    1    1    1
+## [28,]    0    0    1    0    1    1
+## [29,]    0    1    0    0    0    0
+## [30,]    1    1    1    0    0    0
 \end{verbatim}
 
 \hypertarget{modelos-en-r}{%
@@ -840,7 +840,7 @@ Haremos una comparación grafica de la forma del histograma con la media (origin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-26-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 Ahora repitamos el mismo código 10 veces para ver como varia el histograma, ya que estamos seleccioando valores al azar.
 
@@ -918,7 +918,7 @@ Usaremos el set de datos iris para realizar una regresión lineal entre la longi
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-27-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-3}{%
@@ -1007,7 +1007,7 @@ Usaremos mas (+) para combinar efectos. Dos puntos (:) para interacciones A:B; y
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-29-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-5}{%
@@ -1066,7 +1066,7 @@ A continuación, vamos a generar un set de \(n\) datos con una probabilidad dada
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-30-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-59-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-6}{%
@@ -1128,13 +1128,72 @@ Donde:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{introR_files/figure-latex/unnamed-chunk-31-1.pdf}
+\includegraphics{introR_files/figure-latex/unnamed-chunk-60-1.pdf}
 
 \begin{quote}
 \hypertarget{ejercicio-7}{%
 \subsection{Ejercicio:}\label{ejercicio-7}}
 
 Use el modelo para variar n y lambda\ldots{} vea que sucede.
+\end{quote}
+
+\hypertarget{normal-gausiana}{%
+\section{Normal (Gausiana)}\label{normal-gausiana}}
+
+La ecuación de la distribución Binomial es:
+
+\begin{equation} 
+P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+  \label{eq:binom}
+\end{equation}
+
+Donde:
+
+\(P(x)\) es la probabilidad de un valor especifico de \(x\),
+\(\mu\) es la media de la distribución.
+\(\sigma\) es la desviación estandard
+\(\pi\) es 3.14159
+\(e\) es 2.71828
+
+De igual forma que en las distribuciónes anteriores, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla.
+
+\begin{equation} 
+  P\left( x \right) \sim \mathbf{N}(\mu, \sigma)
+  \label{eq:binom}
+\end{equation}
+
+\(P(x)\) es la probabilidad de un valor especifico de \(x\), por lo general un valor continuo.
+\(\mu\) es la media de la distribución.
+\(\sigma\) es la desviación estandard
+
+Veamola graficamente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{100000}
+\NormalTok{mean <-}\StringTok{ }\FloatTok{48.5}
+\NormalTok{sd <-}\StringTok{ }\FloatTok{6.7}
+  
+\CommentTok{# Create a sample of 50 numbers which are normally distributed.}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\StringTok{"dato"}\NormalTok{=}\KeywordTok{rnorm}\NormalTok{(n, mean, sd))}
+\CommentTok{# Plot the histogram for this sample.}
+\CommentTok{# library(lattice)}
+\CommentTok{# densityplot(y$dato, main = "Normal DIstribution")}
+
+\KeywordTok{ggplot}\NormalTok{( }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{dato), }\DataTypeTok{data =}\NormalTok{ y) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{fill=}\StringTok{"#69b3a2"}\NormalTok{, }\DataTypeTok{color=}\StringTok{"#e9ecef"}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.8}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =}\NormalTok{ mean, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"#FF3721"}\NormalTok{,}
+               \DataTypeTok{linetype =} \StringTok{"dashed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{introR_files/figure-latex/unnamed-chunk-61-1.pdf}
+
+\begin{quote}
+\hypertarget{ejercicio-8}{%
+\subsection{Ejercicio:}\label{ejercicio-8}}
+
+Use el modelo para variar n y la media y la desviación, vea que sucede y discuta.
 \end{quote}
 
   \bibliography{book.bib,packages.bib}

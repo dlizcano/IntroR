@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-16" />
+<meta name="date" content="2020-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -167,6 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
 <li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
 <li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
+<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
 <li class="divider"></li>
@@ -241,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(e\)</span> es la constante 2.71828 (base of the Naperian logarithmic system).
 <span class="math inline">\(x\)</span> es el numero de ocurrencias (éxitos).
 <span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>.</p>
-<p>De igual forma que en la distribución binomial, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla. Si desea entender un poco mejor el proceso Poisson vean el video que preparo <a href="https://www.youtube.com/watch?v=Vhjiw8r8kR4">Khan Academy.</a></p>
+<p>De igual forma que en la distribución binomial, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla. Si desea entender un poco mejor el proceso Poisson vean el video que preparó <a href="https://www.youtube.com/watch?v=Vhjiw8r8kR4">Khan Academy.</a></p>
 <p><span class="math display" id="eq:binom">\[\begin{equation} 
   P\left( x \right) \sim \mathbf{Pois}(\lambda)
   \tag{9.1}
@@ -272,6 +273,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <h3 id="ejercicio-7"><span class="header-section-number">10.2</span> Ejercicio:</h3>
 <p>Use el modelo para variar n y lambda… vea que sucede.</p>
+</blockquote>
+</div>
+<div id="normal-gausiana" class="section level2">
+<h2><span class="header-section-number">10.3</span> Normal (Gausiana)</h2>
+<p>La ecuación de la distribución Binomial es:</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>,
+<span class="math inline">\(\mu\)</span> es la media de la distribución.
+<span class="math inline">\(\sigma\)</span> es la desviación estandard
+<span class="math inline">\(\pi\)</span> es 3.14159
+<span class="math inline">\(e\)</span> es 2.71828</p>
+<p>De igual forma que en las distribuciónes anteriores, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla.</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  P\left( x \right) \sim \mathbf{N}(\mu, \sigma)
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, por lo general un valor continuo.
+<span class="math inline">\(\mu\)</span> es la media de la distribución.
+<span class="math inline">\(\sigma\)</span> es la desviación estandard</p>
+<p>Veamola graficamente:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">n &lt;-<span class="st"> </span><span class="dv">100000</span></a>
+<a class="sourceLine" id="cb64-2" title="2">mean &lt;-<span class="st"> </span><span class="fl">48.5</span></a>
+<a class="sourceLine" id="cb64-3" title="3">sd &lt;-<span class="st"> </span><span class="fl">6.7</span></a>
+<a class="sourceLine" id="cb64-4" title="4">  </a>
+<a class="sourceLine" id="cb64-5" title="5"><span class="co"># Create a sample of 50 numbers which are normally distributed.</span></a>
+<a class="sourceLine" id="cb64-6" title="6">y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;dato&quot;</span>=<span class="kw">rnorm</span>(n, mean, sd))</a>
+<a class="sourceLine" id="cb64-7" title="7"><span class="co"># Plot the histogram for this sample.</span></a>
+<a class="sourceLine" id="cb64-8" title="8"><span class="co"># library(lattice)</span></a>
+<a class="sourceLine" id="cb64-9" title="9"><span class="co"># densityplot(y$dato, main = &quot;Normal DIstribution&quot;)</span></a>
+<a class="sourceLine" id="cb64-10" title="10"></a>
+<a class="sourceLine" id="cb64-11" title="11"><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>dato), <span class="dt">data =</span> y) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-12" title="12"><span class="st">    </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="dt">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb64-13" title="13"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> mean, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">colour =</span> <span class="st">&quot;#FF3721&quot;</span>,</a>
+<a class="sourceLine" id="cb64-14" title="14">               <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-8"><span class="header-section-number">10.3</span> Ejercicio:</h3>
+<p>Use el modelo para variar n y la media y la desviación, vea que sucede y discuta.</p>
 </blockquote>
 
 </div>
