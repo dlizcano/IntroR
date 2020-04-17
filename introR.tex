@@ -149,7 +149,7 @@ Este libro es una pequeña guía y tutorial sobre como emplear el lenguaje estad
 
 Este libro ha sido escrito en \href{http://rmarkdown.rstudio.com}{R-Markdown} empleando el paquete \href{https://bookdown.org/yihui/bookdown/}{\texttt{bookdown}}
 
-\begin{flushleft}\includegraphics[width=0.56in]{images/rmd} \end{flushleft}
+\begin{flushleft}\includegraphics[width=2.78in]{images/rmd} \end{flushleft}
 
 Este libro está disponible en el repositorio Github: \href{https://github.com/dlizcano/IntroR}{dlizcano/IntroR}.
 
@@ -312,7 +312,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -8.626455e-18
+## [1] 1.417269e-17
 \end{verbatim}
 
 \begin{Shaded}
@@ -322,7 +322,7 @@ Otra forma es usar funciones como rep y seq
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9095358
+## [1] 0.8424377
 \end{verbatim}
 
 \hypertarget{inspeccionando-vectores}{%
@@ -369,11 +369,11 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]        [,2]       [,3]
-## [1,] -0.3618069  1.56467517 -1.1430813
-## [2,]  0.6661578 -0.94720179 -1.2218039
-## [3,] -0.5214987 -0.05357234 -1.6527820
-## [4,] -0.3306759 -1.53352221  0.2238258
+##            [,1]       [,2]       [,3]
+## [1,] -0.7445321  0.6839873 -1.1825960
+## [2,] -0.5599453 -0.8966243  0.0279901
+## [3,]  1.0449004  0.6598969  0.7860514
+## [4,] -1.7743430  0.4389222  0.8114582
 \end{verbatim}
 
 \begin{Shaded}
@@ -384,9 +384,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,] -0.3618069 -0.5214987  1.5646752
-## [2,]  0.6661578 -0.3306759 -0.9472018
+##            [,1]      [,2]       [,3]
+## [1,] -0.7445321  1.044900  0.6839873
+## [2,] -0.5599453 -1.774343 -0.8966243
 \end{verbatim}
 
 \begin{Shaded}
@@ -396,9 +396,9 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]       [,3]
-## [1,] -0.3618069 0.6661578 -0.5214987
-## [2,] -0.3306759 1.5646752 -0.9472018
+##            [,1]       [,2]       [,3]
+## [1,] -0.7445321 -0.5599453  1.0449004
+## [2,] -1.7743430  0.6839873 -0.8966243
 \end{verbatim}
 
 \begin{Shaded}
@@ -411,10 +411,10 @@ Las matrices son el sigiente paso luego de los vectores. Las matrices son muy ú
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]       [,2]       [,3]
-## [1,] 0.6895265  0.5216871 -0.9152526
-## [2,] 0.9548875 -1.4039183 -1.0740219
-## [3,] 1.0000000  1.0000000  2.0000000
+##            [,1]      [,2]       [,3]
+## [1,] -0.6298157 1.3805958 -0.7698863
+## [2,] -0.1389943 0.1358747  1.7000652
+## [3,]  1.0000000 1.0000000  2.0000000
 \end{verbatim}
 
 \begin{Shaded}
@@ -639,7 +639,7 @@ Creemos una función que opera sobre un vector que vamos a llamar x
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.06964508
+## [1] -0.1015989
 \end{verbatim}
 
 \hypertarget{creaciuxf3n-de-bucles}{%
@@ -693,21 +693,21 @@ Hagamos un bucle mas interesante que simula datos de pesencia ausencia obtenidos
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    0    1    1    1
-##  [2,]    0    1    0    1
-##  [3,]    1    1    1    0
-##  [4,]    0    0    1    1
-##  [5,]    0    1    0    1
-##  [6,]    0    1    1    1
-##  [7,]    1    1    0    0
-##  [8,]    1    0    1    1
-##  [9,]    0    1    0    1
-## [10,]    1    1    1    0
-## [11,]    0    0    1    1
-## [12,]    0    0    1    1
-## [13,]    1    0    1    1
-## [14,]    1    0    0    1
-## [15,]    0    0    1    1
+##  [1,]    0    1    0    0
+##  [2,]    0    0    0    0
+##  [3,]    1    0    0    1
+##  [4,]    1    0    0    1
+##  [5,]    1    1    0    0
+##  [6,]    1    0    1    0
+##  [7,]    0    1    0    1
+##  [8,]    1    1    0    0
+##  [9,]    0    1    1    0
+## [10,]    0    1    0    0
+## [11,]    0    1    1    1
+## [12,]    1    1    1    1
+## [13,]    1    0    1    0
+## [14,]    1    1    1    1
+## [15,]    1    1    0    1
 \end{verbatim}
 
 \begin{quote}
@@ -740,21 +740,21 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4]
-##  [1,]    0    1    1    1
-##  [2,]    1    0    1    1
-##  [3,]    1    1    0    0
-##  [4,]    1    0    1    0
-##  [5,]    0    0    0    1
+##  [1,]    0    1    0    1
+##  [2,]    0    1    0    0
+##  [3,]    1    0    1    1
+##  [4,]    1    0    0    0
+##  [5,]    0    1    1    1
 ##  [6,]    0    0    1    1
-##  [7,]    1    0    0    1
-##  [8,]    1    1    0    1
-##  [9,]    0    0    0    0
-## [10,]    0    1    0    0
-## [11,]    1    0    0    0
-## [12,]    0    0    1    1
-## [13,]    0    1    0    1
-## [14,]    1    1    0    1
-## [15,]    1    1    1    1
+##  [7,]    1    1    0    1
+##  [8,]    0    0    1    0
+##  [9,]    0    1    0    0
+## [10,]    1    0    0    0
+## [11,]    0    1    0    0
+## [12,]    0    1    1    1
+## [13,]    1    1    0    1
+## [14,]    0    1    0    0
+## [15,]    1    1    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -765,36 +765,36 @@ Crear una matriz de datos simulados, de un estudio donde se cuentan renacuajos e
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5] [,6]
-##  [1,]    1    1    0    0    0    1
-##  [2,]    1    1    1    1    1    0
-##  [3,]    0    0    1    1    1    1
-##  [4,]    0    1    1    1    0    0
-##  [5,]    0    0    1    1    0    1
-##  [6,]    1    0    0    0    1    0
-##  [7,]    0    1    0    0    1    1
-##  [8,]    1    1    1    0    1    0
-##  [9,]    0    0    0    0    1    1
-## [10,]    1    0    1    1    0    1
-## [11,]    1    1    0    1    1    1
-## [12,]    0    1    0    0    0    1
-## [13,]    1    0    1    1    0    0
-## [14,]    0    1    0    1    0    0
-## [15,]    1    0    1    0    0    0
-## [16,]    0    1    1    0    0    1
-## [17,]    1    1    0    1    1    0
-## [18,]    1    0    0    0    0    1
-## [19,]    1    1    0    0    1    1
-## [20,]    1    0    1    1    1    0
-## [21,]    0    1    1    0    1    0
-## [22,]    0    1    0    1    1    1
-## [23,]    1    0    0    0    1    0
-## [24,]    1    0    1    1    1    1
-## [25,]    1    1    0    0    0    1
-## [26,]    0    0    0    1    0    1
-## [27,]    0    1    1    0    1    0
-## [28,]    1    0    1    0    1    0
-## [29,]    1    1    0    1    0    1
-## [30,]    1    0    1    1    1    0
+##  [1,]    1    1    1    1    0    0
+##  [2,]    1    1    1    0    1    1
+##  [3,]    0    1    0    1    1    1
+##  [4,]    1    1    0    0    1    1
+##  [5,]    0    1    1    1    0    1
+##  [6,]    0    0    1    0    0    0
+##  [7,]    1    0    0    1    1    1
+##  [8,]    0    1    0    1    1    1
+##  [9,]    0    1    1    0    0    1
+## [10,]    0    1    0    1    0    0
+## [11,]    0    0    1    0    0    0
+## [12,]    1    1    1    0    1    1
+## [13,]    0    1    0    1    0    1
+## [14,]    1    0    0    1    1    1
+## [15,]    1    0    0    1    1    1
+## [16,]    0    1    0    1    1    0
+## [17,]    0    0    1    0    0    1
+## [18,]    0    0    0    1    1    1
+## [19,]    0    1    0    1    1    1
+## [20,]    0    1    1    1    1    1
+## [21,]    1    1    0    1    1    0
+## [22,]    1    1    1    1    0    0
+## [23,]    1    0    0    0    0    0
+## [24,]    1    0    0    1    1    0
+## [25,]    1    1    1    0    0    0
+## [26,]    1    0    0    1    1    1
+## [27,]    0    0    1    0    1    1
+## [28,]    1    1    1    0    1    0
+## [29,]    1    0    1    1    0    0
+## [30,]    1    0    0    1    0    0
 \end{verbatim}
 
 \hypertarget{modelos-en-r}{%
