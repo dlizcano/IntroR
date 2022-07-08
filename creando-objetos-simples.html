@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Creando objetos simples | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Creando objetos simples | Introducción a R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-17" />
+<meta name="date" content="2022-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="matrices.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +51,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,45 +138,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introduccón a R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos</a></li>
+<li><a href="index.html#prólogo">Prólogo<span></span></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples</a><ul>
-<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores</a></li>
-<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores</a></li>
+<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a></li>
-<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas</a><ul>
-<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames</a></li>
-<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames</a></li>
-<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva</a></li>
-<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
-<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
+<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices<span></span></a></li>
+<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas<span></span></a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones<span></span></a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
-<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
-<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
-<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)</a></li>
+<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li><a href="bibliografía.html#bibliografía">Bibliografía<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dlizcano/IntroR" target="_blank">Publicado con bookdown</a></li>
 
@@ -190,70 +205,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creando-objetos-simples" class="section level1">
-<h1><span class="header-section-number">Capítulo 2</span> Creando objetos simples</h1>
-<p>En R los objetos son la clave.</p>
-<div id="vectores" class="section level2">
-<h2><span class="header-section-number">2.1</span> Vectores</h2>
-<p>Los vectores son colecciones de objetos de un solo tipo. La foma mas facil de crear un vector es escribir lo que estará dentro.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># usando la funcion concatenar</span></a>
-<a class="sourceLine" id="cb3-2" title="2">value_num1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3">value_num2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">35</span>,<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb3-4" title="4">value_char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;koala&quot;</span>,<span class="st">&quot;kangaroo&quot;</span>,<span class="st">&quot;echidna&quot;</span>)</a>
-<a class="sourceLine" id="cb3-5" title="5">logical_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(F,F,T,T)</a>
-<a class="sourceLine" id="cb3-6" title="6">logical_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb3-7" title="7">vec_num &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb3-8" title="8"></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>) <span class="co"># note como los numeros se convierten a texto (encerrado entre comillas)</span></a></code></pre></div>
+<div id="creando-objetos-simples" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Creando objetos simples<a href="creando-objetos-simples.html#creando-objetos-simples" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Los objetos son entidades que tienen un determinado estado, comportamiento e identidad y pueden ser algo muy simple como un solo número, o cualquier otra cosa como una tabla o una gráfica o muchas cosas que combinan resultados numéricos gráficas y tablas.</p>
+<div id="vectores" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Vectores<a href="creando-objetos-simples.html#vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los vectores son colecciones de objetos de un solo tipo. La forma más fácil de crear un vector es escribir lo que estará dentro.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="creando-objetos-simples.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando la funcion concatenar</span></span>
+<span id="cb1-2"><a href="creando-objetos-simples.html#cb1-2" aria-hidden="true" tabindex="-1"></a>value_num1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">20</span>)</span>
+<span id="cb1-3"><a href="creando-objetos-simples.html#cb1-3" aria-hidden="true" tabindex="-1"></a>value_num2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">35</span>,<span class="dv">50</span>)</span>
+<span id="cb1-4"><a href="creando-objetos-simples.html#cb1-4" aria-hidden="true" tabindex="-1"></a>value_char <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;koala&quot;</span>,<span class="st">&quot;kangaroo&quot;</span>,<span class="st">&quot;echidna&quot;</span>)</span>
+<span id="cb1-5"><a href="creando-objetos-simples.html#cb1-5" aria-hidden="true" tabindex="-1"></a>logical_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(F,F,T,T)</span>
+<span id="cb1-6"><a href="creando-objetos-simples.html#cb1-6" aria-hidden="true" tabindex="-1"></a>logical_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href="creando-objetos-simples.html#cb1-7" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb1-8"><a href="creando-objetos-simples.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="creando-objetos-simples.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>) <span class="co"># note como los numeros se convierten a texto (encerrado entre comillas)</span></span></code></pre></div>
 <pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># concatenar dos vectores en uno solo</span></a>
-<a class="sourceLine" id="cb5-2" title="2">new_vec &lt;-<span class="st"> </span><span class="kw">c</span>(value_num1, value_num2)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="creando-objetos-simples.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># concatenar dos vectores en uno solo</span></span>
+<span id="cb3-2"><a href="creando-objetos-simples.html#cb3-2" aria-hidden="true" tabindex="-1"></a>new_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(value_num1, value_num2)</span></code></pre></div>
 <p>Otra forma es usar funciones como rep y seq</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Creating Vectors: rep and seq functions</span></a>
-<a class="sourceLine" id="cb6-2" title="2">value &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">5</span>,<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb6-3" title="3">value</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="creando-objetos-simples.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Vectors: rep and seq functions</span></span>
+<span id="cb4-2"><a href="creando-objetos-simples.html#cb4-2" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="creando-objetos-simples.html#cb4-3" aria-hidden="true" tabindex="-1"></a>value</span></code></pre></div>
 <pre><code>##  [1] 5 5 5 5 5 5 5 5 5 5</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="creando-objetos-simples.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">2</span>,<span class="at">to=</span><span class="dv">10</span>,<span class="at">by=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1]  2  4  6  8 10</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">length=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="creando-objetos-simples.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">2</span>,<span class="at">to=</span><span class="dv">10</span>,<span class="at">length=</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1]  2  4  6  8 10</code></pre>
 </div>
-<div id="operaciones-basicas-con-vectores" class="section level2">
-<h2><span class="header-section-number">2.2</span> Operaciones basicas con vectores</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># Basic computation with numerical vectors</span></a>
-<a class="sourceLine" id="cb12-2" title="2">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="co"># extrae 100 valores al azar de la distribucion normal</span></a>
-<a class="sourceLine" id="cb12-3" title="3">y_exp &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">^</span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="co"># exponencial</span></a>
-<a class="sourceLine" id="cb12-4" title="4">y_cua &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="co"># cuadratica</span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="co"># grafiquemos</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="kw">plot</span>(x,y_exp) <span class="co">#graficar con y_cua</span></a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="introR_files/figure-html/unnamed-chunk-9-1.png" alt="figura de una curva exponencial." width="672" />
+<div id="operaciones-basicas-con-vectores" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Operaciones basicas con vectores<a href="creando-objetos-simples.html#operaciones-basicas-con-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="creando-objetos-simples.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic computation with numerical vectors</span></span>
+<span id="cb10-2"><a href="creando-objetos-simples.html#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>) <span class="co"># extrae 500 valores al azar de la distribucion normal</span></span>
+<span id="cb10-3"><a href="creando-objetos-simples.html#cb10-3" aria-hidden="true" tabindex="-1"></a>y_exp <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">^</span>x <span class="sc">+</span> <span class="dv">1</span> <span class="co"># exponencial</span></span>
+<span id="cb10-4"><a href="creando-objetos-simples.html#cb10-4" aria-hidden="true" tabindex="-1"></a>y_cua <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span> <span class="co"># cuadratica</span></span>
+<span id="cb10-5"><a href="creando-objetos-simples.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="creando-objetos-simples.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># grafiquemos</span></span>
+<span id="cb10-7"><a href="creando-objetos-simples.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y_exp) <span class="co">#graficar con y_exp</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3-1"></span>
+<img src="introR_files/figure-html/unnamed-chunk-3-1.png" alt="figura de una curva exponencial." width="672" />
 <p class="caption">
 Figura 2.1: figura de una curva exponencial.
 </p>
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">z &lt;-<span class="st"> </span>(x<span class="op">-</span><span class="kw">mean</span>(x))<span class="op">/</span><span class="kw">sd</span>(x)  <span class="co"># see also &#39;scale&#39;</span></a>
-<a class="sourceLine" id="cb13-2" title="2"></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="kw">mean</span>(z) <span class="co"># la media</span></a></code></pre></div>
-<pre><code>## [1] 6.674349e-18</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">sd</span>(y_exp) <span class="co"># la desviacióm</span></a></code></pre></div>
-<pre><code>## [1] 1.179845</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="creando-objetos-simples.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="co"># la media</span></span></code></pre></div>
+<pre><code>## [1] 0.0872068</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="creando-objetos-simples.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x) <span class="co"># la desviacióm</span></span></code></pre></div>
+<pre><code>## [1] 1.00112</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="creando-objetos-simples.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># una equación</span></span>
+<span id="cb15-2"><a href="creando-objetos-simples.html#cb15-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)  <span class="co"># see also &#39;scale&#39;</span></span>
+<span id="cb15-3"><a href="creando-objetos-simples.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="creando-objetos-simples.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># un histograma</span></span>
+<span id="cb15-5"><a href="creando-objetos-simples.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3-2"></span>
+<img src="introR_files/figure-html/unnamed-chunk-3-2.png" alt="figura de una curva exponencial." width="672" />
+<p class="caption">
+Figura 2.2: figura de una curva exponencial.
+</p>
 </div>
-<div id="inspeccionando-vectores" class="section level2">
-<h2><span class="header-section-number">2.3</span> Inspeccionando vectores</h2>
+</div>
+<div id="inspeccionando-vectores" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Inspeccionando vectores<a href="creando-objetos-simples.html#inspeccionando-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Las siguientes funciones, sirven para inspeccionar el contenido de un vector:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">length</span>(x)</a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="kw">table</span>(x)  <span class="co"># ¡muy importante! Cuenta cuantos valores de cada numero</span></a>
-<a class="sourceLine" id="cb17-3" title="3"><span class="kw">summary</span>(y)</a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="kw">head</span>(x)</a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="kw">tail</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="creando-objetos-simples.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
+<span id="cb16-2"><a href="creando-objetos-simples.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)  <span class="co"># ¡muy importante! Cuenta cuantos valores de cada numero</span></span>
+<span id="cb16-3"><a href="creando-objetos-simples.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(y)</span>
+<span id="cb16-4"><a href="creando-objetos-simples.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span>
+<span id="cb16-5"><a href="creando-objetos-simples.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(x)</span></code></pre></div>
 <p>Para seleccionar elementos de un vector se usa el corchete []. Pero, a diferencia de lo que ocurre con las tablas, como los vectores son objetos unidimensionales, no se usa coma. Obviamente, el corchete sigue admitiendo no solo los índices de los elementos que se quieren extraer, sino que además permite utilizar condiciones lógicas.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">x[<span class="dv">1</span><span class="op">:</span><span class="dv">33</span>]</a>
-<a class="sourceLine" id="cb18-2" title="2">x[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</a>
-<a class="sourceLine" id="cb18-3" title="3">x[x <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.5</span>]</a>
-<a class="sourceLine" id="cb18-4" title="4">x[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb18-5" title="5">x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</a>
-<a class="sourceLine" id="cb18-6" title="6">x[<span class="op">-</span><span class="kw">length</span>(x)]</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="creando-objetos-simples.html#cb17-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">33</span>]</span>
+<span id="cb17-2"><a href="creando-objetos-simples.html#cb17-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span>
+<span id="cb17-3"><a href="creando-objetos-simples.html#cb17-3" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="fl">1.5</span>]</span>
+<span id="cb17-4"><a href="creando-objetos-simples.html#cb17-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>]</span>
+<span id="cb17-5"><a href="creando-objetos-simples.html#cb17-5" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]</span>
+<span id="cb17-6"><a href="creando-objetos-simples.html#cb17-6" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span><span class="fu">length</span>(x)]</span></code></pre></div>
 
 </div>
 </div>
@@ -267,7 +292,6 @@ Figura 2.1: figura de una curva exponencial.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -286,6 +310,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -306,6 +331,10 @@ gitbook.start({
 "text": null
 },
 "download": ["introR.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
@@ -314,20 +343,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

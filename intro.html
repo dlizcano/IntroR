@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 1 Introducción | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 1 Introducción | Introducción a R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-17" />
+<meta name="date" content="2022-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="creando-objetos-simples.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +51,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,45 +138,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introduccón a R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos</a></li>
+<li><a href="index.html#prólogo">Prólogo<span></span></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples</a><ul>
-<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores</a></li>
-<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores</a></li>
+<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a></li>
-<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas</a><ul>
-<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames</a></li>
-<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames</a></li>
-<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva</a></li>
-<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
-<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
+<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices<span></span></a></li>
+<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas<span></span></a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones<span></span></a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
-<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
-<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
-<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)</a></li>
+<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li><a href="bibliografía.html#bibliografía">Bibliografía<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dlizcano/IntroR" target="_blank">Publicado con bookdown</a></li>
 
@@ -190,35 +205,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Capítulo 1</span> Introducción</h1>
+<div id="intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Introducción<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Este libro es una pequeña guía para la aprender los elementos basicos de la estructura y programación de R.</p>
 <p>R es un entorno y lenguaje de programación basado en objetos y enfocado en análisis estadístico y de datos. Vale la pena revisar su historia y evolución en la [pagina de wikipedia](<a href="https://es.wikipedia.org/wiki/R_(lenguaje_de_programación)" class="uri">https://es.wikipedia.org/wiki/R_(lenguaje_de_programación)</a>.</p>
-<p>A lo largo del libro se presentarán códigos que el lector puede copiar y pegar en su consola de R para obtener los mismos resultados aquí del libro. Los códigos se destacan en una caja de color similar a la mostrada a continuación.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># R como calculadora</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span> </a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># mi primer objeto</span></a>
-<a class="sourceLine" id="cb1-4" title="4">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co"># una operación con el objeto</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span>a</a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="co"># una secuencia</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a></code></pre></div>
+<p>A lo largo del libro se presentarán códigos que el lector puede copiar y pegar en su consola de R para obtener los mismos resultados del libro. Los códigos se destacan en una caja de color similar a la mostrada a continuación.</p>
+<p>Ud. puede seleccionar un par de líneas para copiar y pegar o todo el código con el botón que aparece a la derecha al pasar el mouse sobre el código.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R como calculadora</span></span>
+<span id="cb1-2"><a href="intro.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span> </span>
+<span id="cb1-3"><a href="intro.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mi primer objeto</span></span>
+<span id="cb1-4"><a href="intro.html#cb1-4" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb1-5"><a href="intro.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># una operación con el objeto</span></span>
+<span id="cb1-6"><a href="intro.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> a</span>
+<span id="cb1-7"><a href="intro.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># una secuencia</span></span>
+<span id="cb1-8"><a href="intro.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
 <p>Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (##) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con ## son resultados obtenidos y <em>NO</em> los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R como calculadora</span></span>
+<span id="cb2-2"><a href="intro.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span> </span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mi primer objeto</span></span>
+<span id="cb4-2"><a href="intro.html#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb4-3"><a href="intro.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># una operación con el objeto</span></span>
+<span id="cb4-4"><a href="intro.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> a</span></code></pre></div>
+<pre><code>## [1]  5 25 30</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="intro.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># una secuencia</span></span>
+<span id="cb6-2"><a href="intro.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>El usuario habitual de R no hace programación propiamente dicha, sino que utiliza R iterativa e interactivamente: ensaya, se equivoca y vuelve a probar. Solo cuando termina el ciclo y el resultado es satisfactorio, produce un resultado final. Que, usualmente, no es un programa para ejecutar sino, un reporte de resultados o un informe.</p>
 <p>A diferencia de otros lenguajes de programación como Python, en R existen muchas y tal vez demasiadas maneras alternativas de hacer las cosas y eso es considerado como un problema por un programador. Y es un problema muy desconcertante para el principiante de R. No obstante, por motivos pedagógicos, el libro tratará de presentar una de las formas de resolver un determinado problema: la que el autor consideró más natural.</p>
-<div id="requisitos" class="section level2">
-<h2><span class="header-section-number">1.1</span> Requisitos</h2>
+<div id="requisitos" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Requisitos<a href="intro.html#requisitos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Disponer de una versión reciente de R y RStudio. <a href="https://www.rstudio.com/products/rstudio/download/">Descargar la última versión</a>.</p></li>
 <li><p>Instalar el paquete <code>tidyverse</code>, el cual reune varios paquetes útiles de R:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># stable version on CRAN</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co"># or development version on GitHub</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># devtools::install_github(&#39;rstudio/bookdown&#39;)</span></a></code></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="intro.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stable version on CRAN</span></span>
+<span id="cb8-2"><a href="intro.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb8-3"><a href="intro.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or development version on GitHub</span></span>
+<span id="cb8-4"><a href="intro.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&#39;rstudio/bookdown&#39;)</span></span></code></pre></div></li>
 </ol>
 </div>
-<div id="primeros-pasos" class="section level2">
-<h2><span class="header-section-number">1.2</span> Primeros pasos</h2>
+<div id="primeros-pasos" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Primeros pasos<a href="intro.html#primeros-pasos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Si se emplea RStudio (recomendado), lo más cómodo sería crear un proyecto nuevo
 mediante el menú <em>File &gt; New Project &gt; New Directory &gt; proyecto1</em>.</p>
 
@@ -234,7 +261,6 @@ mediante el menú <em>File &gt; New Project &gt; New Directory &gt; proyecto1</e
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -253,6 +279,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -273,6 +300,10 @@ gitbook.start({
 "text": null
 },
 "download": ["introR.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
@@ -281,20 +312,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

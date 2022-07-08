@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 4 Tablas | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al menejo de R." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 4 Tablas | Introducción a R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-17" />
+<meta name="date" content="2022-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="matrices.html"/>
 <link rel="next" href="creación-y-e-indexación-de-listas.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +51,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,45 +138,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introduccón a R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos</a></li>
+<li><a href="index.html#prólogo">Prólogo<span></span></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples</a><ul>
-<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores</a></li>
-<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores</a></li>
+<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a></li>
-<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas</a><ul>
-<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames</a></li>
-<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames</a></li>
-<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva</a></li>
-<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
-<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
+<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices<span></span></a></li>
+<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas<span></span></a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones<span></span></a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
-<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
-<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
-<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)</a></li>
+<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li><a href="bibliografía.html#bibliografía">Bibliografía<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dlizcano/IntroR" target="_blank">Publicado con bookdown</a></li>
 
@@ -190,47 +205,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tablas" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Tablas</h1>
+<div id="tablas" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Tablas<a href="tablas.html#tablas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Las tablas en R se conocen como Data Frames.</p>
 <p>Muy frecuentemente, los datos se disponen en tablas: las hojas de cálculo, las bases de datos, los ficheros csv, etc. contienen, esencialmente, tablas. Además, casi todos los métodos estadísticos (p.e., la regresión lineal) operan sobre información organizada en tablas. Como consecuencia, gran parte del día a día del trabajo con R consiste en manipular tablas de datos para darles el formato necesario para acabar analizándolos estadística o gráficamente.</p>
 <p>Las hojas de cálculo son herramientas que prácticamente todos hemos usado para manipular tablas de datos. Sin embargo R y R studio no permiten la flexibilidad de manejar tablas con el mouse. Asi que hay que aprender algunos comandos basicos para manipular e indexar.</p>
-<div id="crear-data-frames" class="section level2">
-<h2><span class="header-section-number">4.1</span> Crear Data Frames</h2>
-<p>Para practicar y como ejemplo, usaremos una tabla que viene por defecto con R. Se trata de la tabla iris3. Esta tiene columnas que contienen cuatro características métricas de cada especie de flor: la longitud y la anchura de sus pétalos y sépalos; y la especie: setosa, versicolor o virgínica, a la que pertenecen. De momento y hasta que aprendamos cómo importar datos de fuentes externas, utilizaremos este y otros conjuntos de datos de ejemplo que incluye R.</p>
+<div id="crear-data-frames" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Crear Data Frames<a href="tablas.html#crear-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para practicar y como ejemplo, usaremos una tabla que viene por defecto con R. Se trata de la tabla iris. Esta tiene columnas que contienen cuatro características métricas de cada especie de flor: la longitud y la anchura de sus pétalos y sépalos; y la especie: setosa, versicolor o virgínica, a la que pertenecen. De momento y hasta que aprendamos cómo importar datos de fuentes externas, utilizaremos este y otros conjuntos de datos de ejemplo que incluye R.</p>
 <p>Ya que es impráctico mostrar tablas enteras en la consola, sobre todo cuando son grandes. Para mostrar solo parte de ellas, hay algunas funciones útiles para inspeccionar tablas (y, como veremos más adelante, no solo tablas), esta son:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">str</span> (iris)        <span class="co"># &quot;representación textual&quot; del objeto</span></a>
-<a class="sourceLine" id="cb28-2" title="2"><span class="kw">class</span> (iris)      <span class="co"># &quot;representación de la clase&quot; del objeto</span></a>
-<a class="sourceLine" id="cb28-3" title="3"><span class="kw">head</span> (iris)    <span class="co"># primeras seis filas</span></a>
-<a class="sourceLine" id="cb28-4" title="4"><span class="kw">tail</span> (iris)    <span class="co"># últimas seis filas</span></a>
-<a class="sourceLine" id="cb28-5" title="5"><span class="kw">dim</span> (iris)     <span class="co"># filas x columnas</span></a>
-<a class="sourceLine" id="cb28-6" title="6"><span class="kw">colnames</span> (iris)  <span class="co"># nombre de sus columnas</span></a>
-<a class="sourceLine" id="cb28-7" title="7"><span class="kw">summary</span> (iris)  <span class="co"># resumen estadístico de las columnas</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tablas.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span> (iris)        <span class="co"># &quot;representación textual&quot; del objeto</span></span>
+<span id="cb1-2"><a href="tablas.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span> (iris)      <span class="co"># &quot;representación de la clase&quot; del objeto</span></span>
+<span id="cb1-3"><a href="tablas.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (iris)    <span class="co"># primeras seis filas</span></span>
+<span id="cb1-4"><a href="tablas.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> (iris)    <span class="co"># últimas seis filas</span></span>
+<span id="cb1-5"><a href="tablas.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span> (iris)     <span class="co"># filas x columnas</span></span>
+<span id="cb1-6"><a href="tablas.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span> (iris)  <span class="co"># nombre de sus columnas</span></span>
+<span id="cb1-7"><a href="tablas.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (iris)  <span class="co"># resumen estadístico de las columnas</span></span></code></pre></div>
 </div>
-<div id="indexar-data-frames" class="section level2">
-<h2><span class="header-section-number">4.2</span> Indexar data frames</h2>
+<div id="indexar-data-frames" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Indexar data frames<a href="tablas.html#indexar-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Las tablas se indexan usando el corchete [] y este debe ir separado por una coma [,] donde el primer valor representa las filas y el segundo las columnas, siempre en ese orden. Por ejemplo:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="co"># muestra las 5 primeras filas</span></a>
-<a class="sourceLine" id="cb29-2" title="2">iris[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># muestra las 3 primeras columnas</span></a>
-<a class="sourceLine" id="cb29-3" title="3">iris[<span class="dv">25</span>,<span class="dv">4</span>] <span class="co"># muestra el dato de la fila 25 y columna 4 </span></a>
-<a class="sourceLine" id="cb29-4" title="4"></a>
-<a class="sourceLine" id="cb29-5" title="5"><span class="co"># los corchetes tambien admiten los nombres de las columnas</span></a>
-<a class="sourceLine" id="cb29-6" title="6">iris[, <span class="st">&quot;Species&quot;</span>] </a>
-<a class="sourceLine" id="cb29-7" title="7"></a>
-<a class="sourceLine" id="cb29-8" title="8"><span class="co">## Usando el $ en las tablas</span></a>
-<a class="sourceLine" id="cb29-9" title="9"><span class="co"># Pero se usa mas habitualmente (porque es más rápido y más legible) iris$Species en lugar de iris[, &quot;Species&quot;]</span></a>
-<a class="sourceLine" id="cb29-10" title="10">iris<span class="op">$</span>Species </a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tablas.html#cb2-1" aria-hidden="true" tabindex="-1"></a>iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] <span class="co"># muestra las 5 primeras filas</span></span>
+<span id="cb2-2"><a href="tablas.html#cb2-2" aria-hidden="true" tabindex="-1"></a>iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># muestra las 3 primeras columnas</span></span>
+<span id="cb2-3"><a href="tablas.html#cb2-3" aria-hidden="true" tabindex="-1"></a>iris[<span class="dv">25</span>,<span class="dv">4</span>] <span class="co"># muestra el dato de la fila 25 y columna 4 </span></span>
+<span id="cb2-4"><a href="tablas.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="tablas.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># los corchetes tambien admiten los nombres de las columnas</span></span>
+<span id="cb2-6"><a href="tablas.html#cb2-6" aria-hidden="true" tabindex="-1"></a>iris[, <span class="st">&quot;Species&quot;</span>] </span>
+<span id="cb2-7"><a href="tablas.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="tablas.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando el $ en las tablas</span></span>
+<span id="cb2-9"><a href="tablas.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pero se usa mas habitualmente (porque es más rápido y más legible) iris$Species en lugar de iris[, &quot;Species&quot;]</span></span>
+<span id="cb2-10"><a href="tablas.html#cb2-10" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>Species </span></code></pre></div>
 <p>El corchete también permite seleccionar filas mediante condiciones lógicas. Por ejemplo seleccionemos de la tabla de iris las que corresponden a la especie setosa:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tablas.html#cb3-1" aria-hidden="true" tabindex="-1"></a>iris[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>,]</span></code></pre></div>
 <blockquote>
-<h3 id="ejercicio"><span class="header-section-number">4.2</span> Ejercicio:</h3>
+<h3 id="ejercicio" class="hasAnchor">Ejercicio:<a href="tablas.html#ejercicio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Selecciona las filas de iris cuya longitud del pétalo sea mayor que 4.</p>
 </blockquote>
 </div>
-<div id="crear-una-columna-nueva" class="section level2">
-<h2><span class="header-section-number">4.3</span> Crear una columna nueva</h2>
-<p>Lo mas practico es usar el nombre de la tabla seguido de $ y el nombre de la nueva columna. Por ejemplo creemos la columna raiz cuadrada de la longitud del petalo</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">iris<span class="op">$</span>raiz_petalo &lt;-<span class="st"> </span><span class="kw">sqrt</span> (iris<span class="op">$</span>Petal.Length) <span class="co"># sqrt es la raiz cuadrada.</span></a></code></pre></div>
+<div id="crear-una-columna-nueva" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Crear una columna nueva<a href="tablas.html#crear-una-columna-nueva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lo más práctico es usar el nombre de la tabla seguido de $ y el nombre de la nueva columna. Por ejemplo creemos la columna raíz cuadrada de la longitud del pétalo.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tablas.html#cb4-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>raiz_petalo <span class="ot">&lt;-</span> <span class="fu">sqrt</span> (iris<span class="sc">$</span>Petal.Length) <span class="co"># sqrt es la raiz cuadrada.</span></span></code></pre></div>
 <p>Tengan en cuenta que:</p>
 <ul>
 <li>agregar una columna que ya existe la reemplaza,</li>
@@ -238,33 +253,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>asignar NULL a una columna existente la elimina.</li>
 </ul>
 </div>
-<div id="visualizar-la-tabla-graficamente" class="section level2">
-<h2><span class="header-section-number">4.4</span> Visualizar la tabla graficamente</h2>
-<div id="como-histograma" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Como histograma</h3>
+<div id="visualizar-la-tabla-graficamente" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Visualizar la tabla graficamente<a href="tablas.html#visualizar-la-tabla-graficamente" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="como-histograma" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Como histograma<a href="tablas.html#como-histograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A veces es mucho más informativa una representación visual de los datos. La manera más rápida (y recomendada) de hacerse una idea de la distribución de los datos de una columna numérica es usando histogramas. En R, para representar el histograma de la columna Sepal.Width de iris se puede hacer:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Width)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co">#### y para editar el grafico se especifican parametros adicionales</span></a>
-<a class="sourceLine" id="cb33-2" title="2"><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Width, <span class="dt">main =</span> <span class="st">&quot;iris: histograma de la anchura de los sépalos&quot;</span>,</a>
-<a class="sourceLine" id="cb33-3" title="3">      <span class="dt">xlab =</span> <span class="st">&quot;anchura del sépalo&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;frecuencia&quot;</span>,</a>
-<a class="sourceLine" id="cb33-4" title="4">      <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tablas.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5-1"></span>
+<img src="introR_files/figure-html/unnamed-chunk-5-1.png" alt="figura de un histograma de  con los valores del sepalo" width="672" />
+<p class="caption">
+Figura 4.1: figura de un histograma de con los valores del sepalo
+</p>
 </div>
-<div id="como-dos-variables-numericas" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Como dos variables numericas</h3>
-<p>Por ejemplo representemos la lomgitud del sepalo versus el petalo.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Petal.Length)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tablas.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### y para editar el grafico se especifican parametros adicionales</span></span>
+<span id="cb6-2"><a href="tablas.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Width, <span class="at">main =</span> <span class="st">&quot;iris: histograma de la anchura de los sépalos&quot;</span>,</span>
+<span id="cb6-3"><a href="tablas.html#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;anchura del sépalo&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;frecuencia&quot;</span>,</span>
+<span id="cb6-4"><a href="tablas.html#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5-2"></span>
+<img src="introR_files/figure-html/unnamed-chunk-5-2.png" alt="figura de un histograma de  con los valores del sepalo" width="672" />
+<p class="caption">
+Figura 4.2: figura de un histograma de con los valores del sepalo
+</p>
 </div>
-<div id="diagrama-de-caja-boxplots" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> Diagrama de caja (boxplots)</h3>
+</div>
+<div id="como-dos-variables-numericas" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Como dos variables numericas<a href="tablas.html#como-dos-variables-numericas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Por ejemplo representemos la longitud del sépalo versus el pétalo.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tablas.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="introR_files/figure-html/unnamed-chunk-6-1.png" alt="figura de longitud del sépalo versus el pétalo" width="672" />
+<p class="caption">
+Figura 4.3: figura de longitud del sépalo versus el pétalo
+</p>
+</div>
+</div>
+<div id="diagrama-de-caja-boxplots" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Diagrama de caja (boxplots)<a href="tablas.html#diagrama-de-caja-boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los diagramas de cajas (boxplot) estudian la distribución de una variable continua en función de una variable categórica. Están emparentados con los histogramas porque resumen la distribución de una variable continua. Para ello utilizan una representación todavía mas esquemática que la de un histograma: una caja y unos segmentos que acotan las regiones donde la variable continua concentra el grueso de las observaciones.</p>
 <p>Por ejemplo, podemos estudiar la distribución de la anchura del sépalo en iris en función de la especie usando diagramas de cajas así:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">boxplot</span>(iris<span class="op">$</span>Sepal.Width <span class="op">~</span><span class="st"> </span>iris<span class="op">$</span>Species, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,</a>
-<a class="sourceLine" id="cb35-2" title="2">        <span class="dt">main =</span> <span class="st">&quot;Especies de iris</span><span class="ch">\n</span><span class="st">según la anchura del sépalo&quot;</span>)</a></code></pre></div>
-<p><img src="introR_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>La notación y ~ x es muy común en R y significa que vas a hacer algo con y en función de x; en este caso, algo es un diagrama de cajas. Cuando construyamos modelos, querremos entender la variable objetivo y en función de una o más variables predictoras y volveremos a hacer uso de esa notación.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tablas.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Width <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>,</span>
+<span id="cb8-2"><a href="tablas.html#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Especies de iris</span><span class="sc">\n</span><span class="st">según la anchura del sépalo&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="introR_files/figure-html/unnamed-chunk-7-1.png" alt="figura de un boxplot" width="672" />
+<p class="caption">
+Figura 4.4: figura de un boxplot
+</p>
+</div>
+<p>La notación y ~ x es muy común en R y significa que vas a hacer algo con y en función de x; en este caso, algo es un diagrama de cajas. Cuando construyamos modelos, querremos entender la variable objetivo y en función de una o más variables predictoras, así que más adelante volveremos a hacer uso de esa notación.</p>
 
 </div>
 </div>
@@ -279,7 +314,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -298,6 +332,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -318,6 +353,10 @@ gitbook.start({
 "text": null
 },
 "download": ["introR.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
@@ -326,20 +365,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
