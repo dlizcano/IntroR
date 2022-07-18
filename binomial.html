@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Matrices | Introducción a R</title>
+  <title>10.1 Binomial | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al manejo de R." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta property="og:title" content="10.1 Binomial | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta name="twitter:title" content="10.1 Binomial | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al manejo de R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inspeccionando-vectores.html"/>
-<link rel="next" href="tablas.html"/>
+<link rel="prev" href="modelos-de-distribución.html"/>
+<link rel="next" href="poisson.html"/>
 <script src="assets/header-attrs-2.14/header-attrs.js"></script>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -208,62 +208,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="matrices" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Capítulo 3</span> Matrices<a href="matrices.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Las matrices son el siguiente paso luego de los vectores. Las matrices son muy útiles en cálculos algebraicos. Las matrices se crean dimensionando un vector con la función dim o con la función matrix. Veamos algunos ejemplos:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="matrices.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: dim and matrix functions</span></span>
-<span id="cb28-2"><a href="matrices.html#cb28-2" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">12</span>) <span class="co"># crea un vector de 12 valores de la distribucion normal</span></span>
-<span id="cb28-3"><a href="matrices.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>) <span class="co"># crea una matriz de 4 filas y 3 columnas </span></span>
-<span id="cb28-4"><a href="matrices.html#cb28-4" aria-hidden="true" tabindex="-1"></a>value</span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="matrices.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># convierte la matriz a vector</span></span>
-<span id="cb30-2"><a href="matrices.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># crea una matriz con 2 filas 3 columnas </span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.4621213 -0.6820719
-## [2,] -1.7498462 -0.1172224  0.1522439</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="matrices.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T) </span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -1.7498462 -0.4621213
-## [2,] -0.1172224 -0.6820719  0.1522439</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="matrices.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: rbind and cbind functions</span></span>
-<span id="cb34-2"><a href="matrices.html#cb34-2" aria-hidden="true" tabindex="-1"></a>value2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T)</span>
-<span id="cb34-3"><a href="matrices.html#cb34-3" aria-hidden="true" tabindex="-1"></a>value2</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="matrices.html#cb36-1" aria-hidden="true" tabindex="-1"></a>value3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(value2, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># añade una fila adicional</span></span>
-<span id="cb36-2"><a href="matrices.html#cb36-2" aria-hidden="true" tabindex="-1"></a>value3</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841
-## [3,] 1.00000000  1.0000000 2.0000000</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="matrices.html#cb38-1" aria-hidden="true" tabindex="-1"></a>value4 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(value3, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)) <span class="co"># añade otra fila</span></span>
-<span id="cb38-2"><a href="matrices.html#cb38-2" aria-hidden="true" tabindex="-1"></a>value4</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3] [,4]
-## [1,] 0.54913729 -0.3306717 1.5691096    1
-## [2,] 0.04393876 -0.9121524 0.3963841    5
-## [3,] 1.00000000  1.0000000 2.0000000    2</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="matrices.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando matrices como un array 2D.</span></span>
-<span id="cb40-2"><a href="matrices.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">array</span>(value, <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)) <span class="co"># convierte el objeto value a matriz de 4 filas 3 columnas</span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<p>Las matrices son objetos que parecen tablas sin serlo en forma estricta. Las matrices pueden verse también como un array de dos dimensiones. Un array de una dimension equivale a un vector.</p>
-
+<div id="binomial" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Binomial<a href="binomial.html#binomial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recordemos la ecuación de la distribución Binomial:</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+  P\left( x \right) = \frac{{n!}}{{k!\left( {n - k} \right)!}}p^k q^{n - k} = \left( {\begin{array}{*{20}c} n \\ k \\ \end{array}} \right)p^k q^{n - k}
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p>Donde:
+<span class="math inline">\(n\)</span> es el número de ensayos.
+<span class="math inline">\(k\)</span> es el número de éxitos.
+<span class="math inline">\(p\)</span> es la probabilidad de exíto en un ensayo.
+<span class="math inline">\(q=1-p\)</span> es la probabilidad de fracasar en un ensayo.</p>
+<p>Por favor <em>no se asuste</em> por la aparente complejidad de la ecuación. Para simplificar la interpretación usaremos en lugar de la ecuación, el álgebra del modelo. Si desea aprender un poco mas de la distribución binomial le recomiendo el video que ha preparado <a href="https://www.youtube.com/watch?v=sRoflgDiCKo">Khan Academy.</a> con un interesante acento mexicano.</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+  P\left( x \right) \sim \mathbf{Bin}(n,p)
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, el cual se distribuye de forma binomial <span class="math inline">\(Bin\)</span> con los parámetros: <span class="math inline">\(n\)</span> que corresponde al número de ensayos y <span class="math inline">\(p\)</span> a la probabilidad.</p>
+<p>A continuación, vamos a generar un set de <span class="math inline">\(n\)</span> datos con una probabilidad dada <span class="math inline">\(p\)</span>. Estos datos son almacenados en un dataframe y luego visualizados como una distribución de frecuencias. La línea azul representa el promedio de esos datos.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="binomial.html#cb84-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">10</span> <span class="co"># numero de datos</span></span>
+<span id="cb84-2"><a href="binomial.html#cb84-2" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># probabilidad (~proporcion de unos)</span></span>
+<span id="cb84-3"><a href="binomial.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generemos datos con esa informacion </span></span>
+<span id="cb84-4"><a href="binomial.html#cb84-4" aria-hidden="true" tabindex="-1"></a>daber<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">estimado=</span><span class="fu">rbinom</span>(n, <span class="dv">1</span>, p)) </span>
+<span id="cb84-5"><a href="binomial.html#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafiquemos </span></span>
+<span id="cb84-6"><a href="binomial.html#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb84-7"><a href="binomial.html#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(daber, <span class="fu">aes</span>(<span class="at">x=</span>estimado)) <span class="sc">+</span> </span>
+<span id="cb84-8"><a href="binomial.html#cb84-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span>..density..), <span class="co"># Histograma y densidad </span></span>
+<span id="cb84-9"><a href="binomial.html#cb84-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">binwidth=</span>.<span class="dv">1</span>, <span class="co"># Ancho del bin</span></span>
+<span id="cb84-10"><a href="binomial.html#cb84-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb84-11"><a href="binomial.html#cb84-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(estimado, <span class="at">na.rm=</span>T)), </span>
+<span id="cb84-12"><a href="binomial.html#cb84-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="co"># media en azul</span></span></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-6" class="hasAnchor">Ejercicio:<a href="binomial.html#ejercicio-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cambie primero el número de datos y luego la probabilidad, haciéndola cercana a cero y luego cercana a uno. Vea como cambia el promedio con el número de datos y la probabilidad.</p>
+</blockquote>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="inspeccionando-vectores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tablas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelos-de-distribución.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="poisson.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
@@ -294,7 +282,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/03-Matrices.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/10-Modelos_de_distribucion.Rmd",
 "text": "Edit"
 },
 "history": {

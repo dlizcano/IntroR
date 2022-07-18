@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Matrices | Introducción a R</title>
+  <title>10.3 Normal (Gausiana) | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al manejo de R." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta property="og:title" content="10.3 Normal (Gausiana) | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta name="twitter:title" content="10.3 Normal (Gausiana) | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al manejo de R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inspeccionando-vectores.html"/>
-<link rel="next" href="tablas.html"/>
+<link rel="prev" href="poisson.html"/>
+<link rel="next" href="bibliografía.html"/>
 <script src="assets/header-attrs-2.14/header-attrs.js"></script>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -208,62 +208,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="matrices" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Capítulo 3</span> Matrices<a href="matrices.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Las matrices son el siguiente paso luego de los vectores. Las matrices son muy útiles en cálculos algebraicos. Las matrices se crean dimensionando un vector con la función dim o con la función matrix. Veamos algunos ejemplos:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="matrices.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: dim and matrix functions</span></span>
-<span id="cb28-2"><a href="matrices.html#cb28-2" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">12</span>) <span class="co"># crea un vector de 12 valores de la distribucion normal</span></span>
-<span id="cb28-3"><a href="matrices.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>) <span class="co"># crea una matriz de 4 filas y 3 columnas </span></span>
-<span id="cb28-4"><a href="matrices.html#cb28-4" aria-hidden="true" tabindex="-1"></a>value</span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="matrices.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># convierte la matriz a vector</span></span>
-<span id="cb30-2"><a href="matrices.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># crea una matriz con 2 filas 3 columnas </span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.4621213 -0.6820719
-## [2,] -1.7498462 -0.1172224  0.1522439</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="matrices.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T) </span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -1.7498462 -0.4621213
-## [2,] -0.1172224 -0.6820719  0.1522439</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="matrices.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: rbind and cbind functions</span></span>
-<span id="cb34-2"><a href="matrices.html#cb34-2" aria-hidden="true" tabindex="-1"></a>value2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T)</span>
-<span id="cb34-3"><a href="matrices.html#cb34-3" aria-hidden="true" tabindex="-1"></a>value2</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="matrices.html#cb36-1" aria-hidden="true" tabindex="-1"></a>value3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(value2, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># añade una fila adicional</span></span>
-<span id="cb36-2"><a href="matrices.html#cb36-2" aria-hidden="true" tabindex="-1"></a>value3</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841
-## [3,] 1.00000000  1.0000000 2.0000000</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="matrices.html#cb38-1" aria-hidden="true" tabindex="-1"></a>value4 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(value3, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)) <span class="co"># añade otra fila</span></span>
-<span id="cb38-2"><a href="matrices.html#cb38-2" aria-hidden="true" tabindex="-1"></a>value4</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3] [,4]
-## [1,] 0.54913729 -0.3306717 1.5691096    1
-## [2,] 0.04393876 -0.9121524 0.3963841    5
-## [3,] 1.00000000  1.0000000 2.0000000    2</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="matrices.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando matrices como un array 2D.</span></span>
-<span id="cb40-2"><a href="matrices.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">array</span>(value, <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)) <span class="co"># convierte el objeto value a matriz de 4 filas 3 columnas</span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<p>Las matrices son objetos que parecen tablas sin serlo en forma estricta. Las matrices pueden verse también como un array de dos dimensiones. Un array de una dimension equivale a un vector.</p>
+<div id="normal-gausiana" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Normal (Gausiana)<a href="normal-gausiana.html#normal-gausiana" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La ecuación de la distribución Normal es:</p>
+<p><span class="math display" id="eq:norm">\[\begin{equation}
+P\left(x \right) =  \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}
+\tag{10.1}
+\end{equation}\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>,
+<span class="math inline">\(\mu\)</span> es la media de la distribución.
+<span class="math inline">\(\sigma\)</span> es la desviación estandard
+<span class="math inline">\(\pi\)</span> es 3.14159
+<span class="math inline">\(e\)</span> es 2.71828</p>
+<p>De igual forma que en las distribuciónes anteriores, no nos dejemos intimidar por la complejidad de la ecuación y usemos el algebra del modelo que es mucho más sencilla.</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+  P\left( x \right) \sim \mathcal{N}(\mu,\,\sigma^{2})\
+  \tag{9.1}
+\end{equation}\]</span>
+\end{equation}</p>
+<p><span class="math inline">\(P(x)\)</span> es la probabilidad de un valor especifico de <span class="math inline">\(x\)</span>, por lo general un valor continuo.
+<span class="math inline">\(\mu\)</span> es la media de la distribución.
+<span class="math inline">\(\sigma\)</span> es la desviación estandard</p>
+<p>Veamola graficamente:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="normal-gausiana.html#cb86-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb86-2"><a href="normal-gausiana.html#cb86-2" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fl">48.5</span></span>
+<span id="cb86-3"><a href="normal-gausiana.html#cb86-3" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fl">6.7</span></span>
+<span id="cb86-4"><a href="normal-gausiana.html#cb86-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb86-5"><a href="normal-gausiana.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sample of numbers which are normally distributed.</span></span>
+<span id="cb86-6"><a href="normal-gausiana.html#cb86-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;dato&quot;</span><span class="ot">=</span><span class="fu">rnorm</span>(n, mean, sd))</span>
+<span id="cb86-7"><a href="normal-gausiana.html#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histogram for this sample.</span></span>
+<span id="cb86-8"><a href="normal-gausiana.html#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co"># library(lattice)</span></span>
+<span id="cb86-9"><a href="normal-gausiana.html#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="co"># densityplot(y$dato, main = &quot;Normal DIstribution&quot;)</span></span>
+<span id="cb86-10"><a href="normal-gausiana.html#cb86-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-11"><a href="normal-gausiana.html#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>dato), <span class="at">data =</span> y) <span class="sc">+</span></span>
+<span id="cb86-12"><a href="normal-gausiana.html#cb86-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb86-13"><a href="normal-gausiana.html#cb86-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;#FF3721&quot;</span>,</span>
+<span id="cb86-14"><a href="normal-gausiana.html#cb86-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-8" class="hasAnchor">Ejercicio:<a href="normal-gausiana.html#ejercicio-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use el modelo para variar n y la media y la desviación, vea que sucede y discuta.</p>
+</blockquote>
 
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="inspeccionando-vectores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tablas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="poisson.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
@@ -294,7 +290,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/03-Matrices.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/10-Modelos_de_distribucion.Rmd",
 "text": "Edit"
 },
 "history": {

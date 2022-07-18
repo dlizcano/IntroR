@@ -5,42 +5,44 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 5 Creación y e indexación de listas | Introducción a R</title>
-  <meta name="description" content="Este libro es una introducción al menejo de R." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="description" content="Este libro es una introducción al manejo de R." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 5 Creación y e indexación de listas | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Este libro es una introducción al menejo de R." />
+  <meta property="og:description" content="Este libro es una introducción al manejo de R." />
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 5 Creación y e indexación de listas | Introducción a R" />
   
-  <meta name="twitter:description" content="Este libro es una introducción al menejo de R." />
+  <meta name="twitter:description" content="Este libro es una introducción al manejo de R." />
   
 
 <meta name="author" content="Diego J. Lizcano" />
 
 
-<meta name="date" content="2020-04-17" />
+<meta name="date" content="2022-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tablas.html"/>
+<link rel="prev" href="visualizar-la-tabla-graficamente.html"/>
 <link rel="next" href="creación-de-funciones.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="assets/header-attrs-2.14/header-attrs.js"></script>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,29 +51,33 @@
 
 
 
-
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,45 +138,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introduccón a R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Requisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#primeros-pasos"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos</a></li>
+<li><a href="index.html#prólogo">Prólogo<span></span></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="requisitos.html"><a href="requisitos.html"><i class="fa fa-check"></i><b>1.1</b> Requisitos<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>1.2</b> Primeros pasos<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples</a><ul>
-<li class="chapter" data-level="2.1" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#operaciones-basicas-con-vectores"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores</a></li>
-<li class="chapter" data-level="2.3" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html#inspeccionando-vectores"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores</a></li>
+<li class="chapter" data-level="2" data-path="creando-objetos-simples.html"><a href="creando-objetos-simples.html"><i class="fa fa-check"></i><b>2</b> Creando objetos simples<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>2.1</b> Vectores<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="operaciones-basicas-con-vectores.html"><a href="operaciones-basicas-con-vectores.html"><i class="fa fa-check"></i><b>2.2</b> Operaciones basicas con vectores<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="operaciones-basicas-con-vectores.html"><a href="operaciones-basicas-con-vectores.html#usando-formulas-sobre-vectores"><i class="fa fa-check"></i><b>2.2.1</b> Usando formulas sobre vectores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a></li>
-<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas</a><ul>
-<li class="chapter" data-level="4.1" data-path="tablas.html"><a href="tablas.html#crear-data-frames"><i class="fa fa-check"></i><b>4.1</b> Crear Data Frames</a></li>
-<li class="chapter" data-level="4.2" data-path="tablas.html"><a href="tablas.html#indexar-data-frames"><i class="fa fa-check"></i><b>4.2</b> Indexar data frames</a></li>
-<li class="chapter" data-level="4.3" data-path="tablas.html"><a href="tablas.html#crear-una-columna-nueva"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva</a></li>
-<li class="chapter" data-level="4.4" data-path="tablas.html"><a href="tablas.html#visualizar-la-tabla-graficamente"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="tablas.html"><a href="tablas.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma</a></li>
-<li class="chapter" data-level="4.4.2" data-path="tablas.html"><a href="tablas.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tablas.html"><a href="tablas.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)</a></li>
+<li class="chapter" data-level="2.3" data-path="inspeccionando-vectores.html"><a href="inspeccionando-vectores.html"><i class="fa fa-check"></i><b>2.3</b> Inspeccionando vectores<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices<span></span></a></li>
+<li class="chapter" data-level="4" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>4</b> Tablas<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ver-data-frames.html"><a href="ver-data-frames.html"><i class="fa fa-check"></i><b>4.1</b> Ver Data Frames<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="indexar-data-frames.html"><a href="indexar-data-frames.html"><i class="fa fa-check"></i><b>4.2</b> Indexar Data Frames<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="crear-una-columna-nueva.html"><a href="crear-una-columna-nueva.html"><i class="fa fa-check"></i><b>4.3</b> Crear una columna nueva<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="visualizar-la-tabla-graficamente.html"><a href="visualizar-la-tabla-graficamente.html"><i class="fa fa-check"></i><b>4.4</b> Visualizar la tabla graficamente<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="visualizar-la-tabla-graficamente.html"><a href="visualizar-la-tabla-graficamente.html#como-histograma"><i class="fa fa-check"></i><b>4.4.1</b> Como histograma<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="visualizar-la-tabla-graficamente.html"><a href="visualizar-la-tabla-graficamente.html#como-dos-variables-numericas"><i class="fa fa-check"></i><b>4.4.2</b> Como dos variables numericas<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="visualizar-la-tabla-graficamente.html"><a href="visualizar-la-tabla-graficamente.html#diagrama-de-caja-boxplots"><i class="fa fa-check"></i><b>4.4.3</b> Diagrama de caja (boxplots)<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas</a></li>
-<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones</a></li>
-<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles</a><ul>
-<li class="chapter" data-level="7.1" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html#convirtamolo-en-función"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función</a></li>
+<li class="chapter" data-level="5" data-path="creación-y-e-indexación-de-listas.html"><a href="creación-y-e-indexación-de-listas.html"><i class="fa fa-check"></i><b>5</b> Creación y e indexación de listas<span></span></a></li>
+<li class="chapter" data-level="6" data-path="creación-de-funciones.html"><a href="creación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Creación de Funciones<span></span></a></li>
+<li class="chapter" data-level="7" data-path="creación-de-bucles.html"><a href="creación-de-bucles.html"><i class="fa fa-check"></i><b>7</b> Creación de bucles<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="convirtamolo-en-función.html"><a href="convirtamolo-en-función.html"><i class="fa fa-check"></i><b>7.1</b> Convirtamolo en función<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-en-r.html"><a href="modelos-en-r.html#modelo-de-la-media"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media</a></li>
+<li class="chapter" data-level="8" data-path="modelos-en-r.html"><a href="modelos-en-r.html"><i class="fa fa-check"></i><b>8</b> Modelos en R<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modelo-de-la-media.html"><a href="modelo-de-la-media.html"><i class="fa fa-check"></i><b>8.1</b> Modelo de la media<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal</a><ul>
-<li class="chapter" data-level="9.1" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="9.2" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html#regresión-lineal-con-2-o-más-predictores"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores</a></li>
+<li class="chapter" data-level="9" data-path="modelo-de-regresión-lineal.html"><a href="modelo-de-regresión-lineal.html"><i class="fa fa-check"></i><b>9</b> Modelo de regresión lineal<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>9.1</b> Regresión lineal simple<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="regresión-lineal-con-2-o-más-predictores.html"><a href="regresión-lineal-con-2-o-más-predictores.html"><i class="fa fa-check"></i><b>9.2</b> Regresión lineal con 2 o más predictores<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución</a><ul>
-<li class="chapter" data-level="10.1" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#binomial"><i class="fa fa-check"></i><b>10.1</b> Binomial</a></li>
-<li class="chapter" data-level="10.2" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#poisson"><i class="fa fa-check"></i><b>10.2</b> Poisson</a></li>
-<li class="chapter" data-level="10.3" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html#normal-gausiana"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)</a></li>
+<li class="chapter" data-level="10" data-path="modelos-de-distribución.html"><a href="modelos-de-distribución.html"><i class="fa fa-check"></i><b>10</b> Modelos de distribución<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="binomial.html"><a href="binomial.html"><i class="fa fa-check"></i><b>10.1</b> Binomial<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="poisson.html"><a href="poisson.html"><i class="fa fa-check"></i><b>10.2</b> Poisson<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="normal-gausiana.html"><a href="normal-gausiana.html"><i class="fa fa-check"></i><b>10.3</b> Normal (Gausiana)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i>Bibliografía</a></li>
+<li><a href="bibliografía.html#bibliografía">Bibliografía<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dlizcano/IntroR" target="_blank">Publicado con bookdown</a></li>
 
@@ -190,28 +208,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creación-y-e-indexación-de-listas" class="section level1">
-<h1><span class="header-section-number">Capítulo 5</span> Creación y e indexación de listas</h1>
-<p>Las tablas son contenedores de información estructurada: las columnas son del mismo tipo, todas tienen la misma longitud, etc. Gran parte de los datos con los que se trabaja habitualmente son estructurados, palabra que, en la jerga, significa que admiten una representación tabular.</p>
-<p>Sin embargo, cada vez es más habitual trabajar directamente con información desestructurada. Particularmente, en ciencia de datos. Eso justifica el uso de las listas, que pueden definirse como contenedores genéricos de información desestructurada.</p>
-<p>Las listas son objetos muy versatiles que mezclan varias cosas y sirven como contenedores genericos de dstos e informacón. Estas son una ventaja de R, sobre otros lenguajes como Python que no las tienen. Pero pueden llegar a ser objetos complejos dificiles de entender y visualizar.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>) <span class="co"># vector numerico</span></a>
-<a class="sourceLine" id="cb36-2" title="2">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>, <span class="st">&quot;Carro&quot;</span>, <span class="st">&quot;Beca&quot;</span>) <span class="co"># vector alfanumerico</span></a>
-<a class="sourceLine" id="cb36-3" title="3"></a>
-<a class="sourceLine" id="cb36-4" title="4">florecitas &lt;-<span class="st"> </span>iris[<span class="dv">3</span><span class="op">:</span><span class="dv">25</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>] <span class="co">#data frame</span></a>
-<a class="sourceLine" id="cb36-5" title="5"></a>
-<a class="sourceLine" id="cb36-6" title="6">lista1 &lt;-<span class="st"> </span><span class="kw">list</span>(a, b, florecitas)</a></code></pre></div>
-<p>las listas disponen de un operador para extraer elementos, los dobles corchetes, [[]], que funcionan de manera parecida y analoga a $.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">lista1[[<span class="dv">2</span>]] <span class="co"># extrae el objeto b</span></a></code></pre></div>
+<div id="creación-y-e-indexación-de-listas" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Creación y e indexación de listas<a href="creación-y-e-indexación-de-listas.html#creación-y-e-indexación-de-listas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Las tablas son contenedores de información estructurada: las columnas son del mismo tipo, todas tienen la misma longitud, etc. Gran parte de los datos con los que se trabaja habitualmente en R son estructurados, palabra que, en la jerga estadística, significa que admiten una representación tabular.</p>
+<p>Sin embargo, cada vez es más habitual trabajar directamente con información desestructurada. Particularmente, en análisis estadísticos y ciencia de datos. Eso justifica el uso de las listas. Las listas pueden definirse como contenedores genéricos de información desestructurada.</p>
+<p>Las listas son objetos muy versátiles que mezclan varias cosas y sirven como contenedores genéricos de datos e información. Estas son una ventaja de R, sobre otros lenguajes como Python que no las tienen. Pero pueden llegar a ser objetos muy complejos, difíciles de entender y visualizar.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="creación-y-e-indexación-de-listas.html#cb50-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>) <span class="co"># vector numerico</span></span>
+<span id="cb50-2"><a href="creación-y-e-indexación-de-listas.html#cb50-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Casa&quot;</span>, <span class="st">&quot;Carro&quot;</span>, <span class="st">&quot;Beca&quot;</span>) <span class="co"># vector alfanumerico</span></span>
+<span id="cb50-3"><a href="creación-y-e-indexación-de-listas.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="creación-y-e-indexación-de-listas.html#cb50-4" aria-hidden="true" tabindex="-1"></a>florecitas <span class="ot">&lt;-</span> iris[<span class="dv">3</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># data frame</span></span>
+<span id="cb50-5"><a href="creación-y-e-indexación-de-listas.html#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="creación-y-e-indexación-de-listas.html#cb50-6" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>(a, b, florecitas) <span class="co"># una lista con 3 objetos</span></span>
+<span id="cb50-7"><a href="creación-y-e-indexación-de-listas.html#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="creación-y-e-indexación-de-listas.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(lista1) <span class="co"># ver la estructura de la lista</span></span></code></pre></div>
+<pre><code>## List of 3
+##  $ : num [1:9] 1 2 3 4 5 6 7 8 9
+##  $ : chr [1:3] &quot;Casa&quot; &quot;Carro&quot; &quot;Beca&quot;
+##  $ :&#39;data.frame&#39;:    23 obs. of  4 variables:
+##   ..$ Sepal.Width : num [1:23] 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 ...
+##   ..$ Petal.Length: num [1:23] 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 1.5 1.6 ...
+##   ..$ Petal.Width : num [1:23] 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 ...
+##   ..$ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>las listas disponen de un operador para extraer elementos, los dobles corchetes, [[]], que funcionan de manera parecida y análoga a $.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="creación-y-e-indexación-de-listas.html#cb52-1" aria-hidden="true" tabindex="-1"></a>lista1[[<span class="dv">2</span>]] <span class="co"># extrae el objeto b</span></span></code></pre></div>
 <pre><code>## [1] &quot;Casa&quot;  &quot;Carro&quot; &quot;Beca&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">lista1[[<span class="dv">3</span>]] [,<span class="dv">4</span>] <span class="co"># extrae la columna 4 del objeto 3</span></a></code></pre></div>
-<pre><code>##  [1] setosa setosa setosa setosa
-##  [5] setosa setosa setosa setosa
-##  [9] setosa setosa setosa setosa
-## [13] setosa setosa setosa setosa
-## [17] setosa setosa setosa setosa
-## [21] setosa setosa setosa
-## 3 Levels: setosa ... virginica</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="creación-y-e-indexación-de-listas.html#cb54-1" aria-hidden="true" tabindex="-1"></a>lista1[[<span class="dv">3</span>]] [,<span class="dv">4</span>] <span class="co"># extrae la columna 4 del objeto 3</span></span></code></pre></div>
+<pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa
+##  [8] setosa setosa setosa setosa setosa setosa setosa
+## [15] setosa setosa setosa setosa setosa setosa setosa
+## [22] setosa setosa
+## Levels: setosa versicolor virginica</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="creación-y-e-indexación-de-listas.html#cb56-1" aria-hidden="true" tabindex="-1"></a>lista1[[<span class="dv">3</span>]] [<span class="dv">2</span>,] <span class="co"># extrae la fila 2 del objeto 3</span></span></code></pre></div>
+<pre><code>##   Sepal.Width Petal.Length Petal.Width Species
+## 4         3.1          1.5         0.2  setosa</code></pre>
+<p>Las listas pueden tambien contener graficas o incluso una lista dentro de la lista.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="creación-y-e-indexación-de-listas.html#cb58-1" aria-hidden="true" tabindex="-1"></a>lista1[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Width) <span class="co"># grafica en el campo 4 de la lista</span></span></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="creación-y-e-indexación-de-listas.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(lista1[[4]]) # ver la grafica</span></span>
+<span id="cb59-2"><a href="creación-y-e-indexación-de-listas.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="creación-y-e-indexación-de-listas.html#cb59-3" aria-hidden="true" tabindex="-1"></a>lista1[[<span class="dv">5</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(a, b, <span class="fu">rnorm</span>(<span class="dv">20</span>)) <span class="co"># lista dentro del campo 5 de la lista</span></span></code></pre></div>
 
 </div>
             </section>
@@ -219,19 +254,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="tablas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualizar-la-tabla-graficamente.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="creación-de-funciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -243,6 +277,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -263,6 +298,10 @@ gitbook.start({
 "text": null
 },
 "download": ["introR.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },

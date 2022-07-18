@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Matrices | Introducción a R</title>
+  <title>9.2 Regresión lineal con 2 o más predictores | Introducción a R</title>
   <meta name="description" content="Este libro es una introducción al manejo de R." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta property="og:title" content="9.2 Regresión lineal con 2 o más predictores | Introducción a R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dlizcano/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Matrices | Introducción a R" />
+  <meta name="twitter:title" content="9.2 Regresión lineal con 2 o más predictores | Introducción a R" />
   
   <meta name="twitter:description" content="Este libro es una introducción al manejo de R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inspeccionando-vectores.html"/>
-<link rel="next" href="tablas.html"/>
+<link rel="prev" href="regresión-lineal-simple.html"/>
+<link rel="next" href="modelos-de-distribución.html"/>
 <script src="assets/header-attrs-2.14/header-attrs.js"></script>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -208,62 +208,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="matrices" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Capítulo 3</span> Matrices<a href="matrices.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Las matrices son el siguiente paso luego de los vectores. Las matrices son muy útiles en cálculos algebraicos. Las matrices se crean dimensionando un vector con la función dim o con la función matrix. Veamos algunos ejemplos:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="matrices.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: dim and matrix functions</span></span>
-<span id="cb28-2"><a href="matrices.html#cb28-2" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">12</span>) <span class="co"># crea un vector de 12 valores de la distribucion normal</span></span>
-<span id="cb28-3"><a href="matrices.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>) <span class="co"># crea una matriz de 4 filas y 3 columnas </span></span>
-<span id="cb28-4"><a href="matrices.html#cb28-4" aria-hidden="true" tabindex="-1"></a>value</span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="matrices.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(value) <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># convierte la matriz a vector</span></span>
-<span id="cb30-2"><a href="matrices.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># crea una matriz con 2 filas 3 columnas </span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.4621213 -0.6820719
-## [2,] -1.7498462 -0.1172224  0.1522439</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="matrices.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(value,<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T) </span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -1.7498462 -0.4621213
-## [2,] -0.1172224 -0.6820719  0.1522439</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="matrices.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando Matrices: rbind and cbind functions</span></span>
-<span id="cb34-2"><a href="matrices.html#cb34-2" aria-hidden="true" tabindex="-1"></a>value2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span>T)</span>
-<span id="cb34-3"><a href="matrices.html#cb34-3" aria-hidden="true" tabindex="-1"></a>value2</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="matrices.html#cb36-1" aria-hidden="true" tabindex="-1"></a>value3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(value2, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># añade una fila adicional</span></span>
-<span id="cb36-2"><a href="matrices.html#cb36-2" aria-hidden="true" tabindex="-1"></a>value3</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,] 0.54913729 -0.3306717 1.5691096
-## [2,] 0.04393876 -0.9121524 0.3963841
-## [3,] 1.00000000  1.0000000 2.0000000</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="matrices.html#cb38-1" aria-hidden="true" tabindex="-1"></a>value4 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(value3, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)) <span class="co"># añade otra fila</span></span>
-<span id="cb38-2"><a href="matrices.html#cb38-2" aria-hidden="true" tabindex="-1"></a>value4</span></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3] [,4]
-## [1,] 0.54913729 -0.3306717 1.5691096    1
-## [2,] 0.04393876 -0.9121524 0.3963841    5
-## [3,] 1.00000000  1.0000000 2.0000000    2</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="matrices.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando matrices como un array 2D.</span></span>
-<span id="cb40-2"><a href="matrices.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">array</span>(value, <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>)) <span class="co"># convierte el objeto value a matriz de 4 filas 3 columnas</span></span></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  0.5687357 -0.6820719 -0.6429599
-## [2,] -1.7498462  0.1522439 -0.1692340
-## [3,] -0.4621213 -0.5233456 -0.6320769
-## [4,] -0.1172224 -0.4558683 -1.1874209</code></pre>
-<p>Las matrices son objetos que parecen tablas sin serlo en forma estricta. Las matrices pueden verse también como un array de dos dimensiones. Un array de una dimension equivale a un vector.</p>
+<div id="regresión-lineal-con-2-o-más-predictores" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Regresión lineal con 2 o más predictores<a href="regresión-lineal-con-2-o-más-predictores.html#regresión-lineal-con-2-o-más-predictores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ahora haremos las cosas un poco más complejas (sin que sean difíciles) para entender que sucede cuando hay dos o más predictores de la forma:</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+y = \alpha +\beta_{1}\mathit{x} +\beta_{2}\mathit{x} +\epsilon,
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p>Usaremos mas (+) para combinar efectos. Dos puntos (:) para interacciones A:B; y asterisco para efectos e interacciones, ej A*B = A+B+A:B</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="regresión-lineal-con-2-o-más-predictores.html#cb79-1" aria-hidden="true" tabindex="-1"></a>model1a <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length <span class="sc">*</span> Petal.Width, <span class="at">data=</span>iris)</span>
+<span id="cb79-2"><a href="regresión-lineal-con-2-o-más-predictores.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1a)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Sepal.Length ~ Petal.Length * Petal.Width, data = iris)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.00058 -0.25209  0.00766  0.21640  0.89542 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value
+## (Intercept)               4.57717    0.11195  40.885
+## Petal.Length              0.44168    0.06551   6.742
+## Petal.Width              -1.23932    0.21937  -5.649
+## Petal.Length:Petal.Width  0.18859    0.03357   5.617
+##                          Pr(&gt;|t|)    
+## (Intercept)               &lt; 2e-16 ***
+## Petal.Length             3.38e-10 ***
+## Petal.Width              8.16e-08 ***
+## Petal.Length:Petal.Width 9.50e-08 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3667 on 146 degrees of freedom
+## Multiple R-squared:  0.8078, Adjusted R-squared:  0.8039 
+## F-statistic: 204.5 on 3 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="regresión-lineal-con-2-o-más-predictores.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span></code></pre></div>
+<pre><code>## Warning: package &#39;lattice&#39; was built under R version
+## 4.0.5</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-1" aria-hidden="true" tabindex="-1"></a>newdato<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="fu">list</span>(<span class="at">Petal.Length =</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="at">length.out=</span><span class="dv">100</span>), </span>
+<span id="cb83-2"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Petal.Width=</span><span class="fu">seq</span>(<span class="dv">1</span>, <span class="fl">2.5</span>, <span class="at">length.out=</span><span class="dv">100</span>)))</span>
+<span id="cb83-3"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-3" aria-hidden="true" tabindex="-1"></a>newdato<span class="sc">$</span>Sepal.Length<span class="ot">&lt;-</span><span class="fu">predict</span>(model1a, <span class="at">newdata =</span> newdato) <span class="co"># predice sepalo con petalo de 4 a 7 y 1 a 2.5</span></span>
+<span id="cb83-4"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levelplot</span>(Sepal.Length<span class="sc">~</span>Petal.Length <span class="sc">*</span> Petal.Width, <span class="at">data=</span>newdato,</span>
+<span id="cb83-6"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Petal.Length&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Petal.Width&quot;</span>,</span>
+<span id="cb83-7"><a href="regresión-lineal-con-2-o-más-predictores.html#cb83-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Surface of Sepal.Length&quot;</span>)</span></code></pre></div>
+<p><img src="introR_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<blockquote>
+<h3 id="ejercicio-5" class="hasAnchor">Ejercicio:<a href="regresión-lineal-con-2-o-más-predictores.html#ejercicio-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cambie el rango de la predicción de 2 a 8
+Cambie en el modelo la interacion de las covariables a +</p>
+</blockquote>
 
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="inspeccionando-vectores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tablas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regresión-lineal-simple.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-de-distribución.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
@@ -294,7 +300,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dlizcano/IntroR/edit/master/03-Matrices.Rmd",
+"link": "https://github.com/dlizcano/IntroR/edit/master/09-Regresion_lineal.Rmd",
 "text": "Edit"
 },
 "history": {
